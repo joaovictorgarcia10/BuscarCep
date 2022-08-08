@@ -1,20 +1,28 @@
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/repositories/meus_enderecos_repository.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
 import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
-import 'package:dartz/dartz.dart';
 
-class DeleteEndereco implements UsecaseCore<bool, DeleteEnderecoParams> {
-  final MeusEnderecosRepository _meusEnderecosRepository;
-  DeleteEndereco(this._meusEnderecosRepository);
+class DeleteEndereco
+    implements StreamUseCase<DetalhesEnderecoState, DeleteEnderecoParams> {
+  final MeusEnderecosRepository _repository;
+  DeleteEndereco(this._repository);
 
   @override
-  Future<Either<Failure, bool>> call(DeleteEnderecoParams params) async {
-    return await _meusEnderecosRepository.deleteEndereco(idEndereco: params.id);
+  Stream<DetalhesEnderecoState> call(DeleteEnderecoParams params) async* {
+    yield const DetalhesEnderecoState.loading();
+
+    final result = await _repository.deleteEndereco(idEndereco: params.id);
+
+    yield result.fold(
+      (l) => DetalhesEnderecoState.failure(failure: l),
+      (r) => const DetalhesEnderecoState.deleteEnderecoSuccess(),
+    );
   }
 }
 
 class DeleteEnderecoParams {
   final String id;
+
   DeleteEnderecoParams({
     required this.id,
   });

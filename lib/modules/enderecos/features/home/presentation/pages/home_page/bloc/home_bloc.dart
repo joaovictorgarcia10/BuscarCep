@@ -4,7 +4,6 @@ import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
 import 'package:clean_arch_aula/shared/core/session/session.dart';
-import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -21,31 +20,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>(_onEvent);
   }
 
-  Future<void> _onEvent(
-    HomeEvent event,
-    Emitter<HomeState> emit,
-  ) async {
-    emit(const HomeState.loading());
+  Future<void> _onEvent(HomeEvent event, Emitter<HomeState> emit) async {
     await event.when(
-      buscarEndereco: (params) async {
-        final result = await _buscarEndreco(params);
-        result.fold(
-          (l) => emit(HomeState.failure(failure: l)),
-          (r) => emit(HomeState.buscarEnderecoSuccess(endereco: r)),
+      buscarEndereco: (params) {
+        return emit.onEach<HomeState>(
+          _buscarEndreco(params),
+          onData: (data) => emit(data),
         );
       },
-      saveEndereco: (endereco) async {
-        final result = await _saveEndereco(endereco);
-        result.fold(
-          (l) => emit(HomeState.failure(failure: l)),
-          (r) => emit(const HomeState.saveEnderecoSuccess()),
+      saveEndereco: (endereco) {
+        return emit.onEach<HomeState>(
+          _saveEndereco(endereco),
+          onData: (data) => emit(data),
         );
       },
-      disconnectAccount: () async {
-        final result = await _disconnectAccount();
-        result.fold(
-          (l) => emit(HomeState.failure(failure: l)),
-          (r) => emit(const HomeState.disconnectAccountSuccess()),
+      disconnectAccount: () {
+        return emit.onEach<HomeState>(
+          _disconnectAccount(),
+          onData: (data) => emit(data),
         );
       },
     );

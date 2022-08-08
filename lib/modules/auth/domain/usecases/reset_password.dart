@@ -1,14 +1,21 @@
-import 'package:dartz/dartz.dart';
 import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
 
-class ResetPassword extends UsecaseCore<bool, String> {
+import '../../presentation/pages/esqueci_senha/bloc/esqueci_senha_state.dart';
+
+class ResetPassword extends StreamUseCase<EsqueciSenhaState, String> {
   final AuthRepository repository;
   ResetPassword({required this.repository});
 
   @override
-  Future<Either<Failure, bool>> call(String params) async {
-    return await repository.resetPassword(email: params);
+  Stream<EsqueciSenhaState> call(String params) async* {
+    yield const EsqueciSenhaState.loading();
+
+    final result = await repository.resetPassword(email: params);
+
+    yield result.fold(
+      (l) => EsqueciSenhaState.failure(failure: l),
+      (r) => const EsqueciSenhaState.success(),
+    );
   }
 }

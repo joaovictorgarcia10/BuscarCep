@@ -2,6 +2,7 @@ import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/shared/features/geolocation/data/services/geolocation_service.dart';
 import 'package:clean_arch_aula/shared/features/geolocation/domain/entities/geolocation.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 class GeolocationServiceImpl implements GeolocationService {
@@ -37,7 +38,8 @@ class GeolocationServiceImpl implements GeolocationService {
 
       return Right(geolocation);
     } catch (e) {
-      return Left(Failure(message: e.toString()));
+      debugPrint("$e");
+      return Left(Failure(message: ServerFailure().message));
     }
   }
 }

@@ -13,17 +13,12 @@ class MeusEnderecosBloc extends Bloc<MeusEnderecosEvent, MeusEnderecosState> {
   }
 
   Future<void> _onEvent(
-    MeusEnderecosEvent event,
-    Emitter<MeusEnderecosState> emit,
-  ) async {
-    emit(const MeusEnderecosState.loading());
+      MeusEnderecosEvent event, Emitter<MeusEnderecosState> emit) async {
     await event.when(
       getListaEnderecos: () async {
-        final result = await _getListaEnderecos();
-        result.fold(
-          (l) => emit(MeusEnderecosState.failure(failure: l)),
-          (r) => emit(
-              MeusEnderecosState.getListaEnderecosSuccess(listaEnderecos: r)),
+        return emit.onEach<MeusEnderecosState>(
+          _getListaEnderecos(),
+          onData: (data) => emit(data),
         );
       },
     );

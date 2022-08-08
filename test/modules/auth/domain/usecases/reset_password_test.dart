@@ -1,5 +1,6 @@
 import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/reset_password.dart';
+import 'package:clean_arch_aula/modules/auth/presentation/pages/esqueci_senha/bloc/esqueci_senha_state.dart';
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,16 +21,26 @@ void main() {
     test("ResetPassword - Success", () async {
       when(() => authRepository.resetPassword(email: "email"))
           .thenAnswer((_) async => const Right(true));
-      final result = await resetPassword("email");
-      result.fold((l) => null, (r) => expect(r, true));
+      final result = resetPassword("email");
+      expectLater(
+          result,
+          emitsInOrder(const [
+            EsqueciSenhaState.loading(),
+            EsqueciSenhaState.success(),
+          ]));
     });
 
     test("ResetPassword - Failure", () async {
       final failure = Failure();
       when(() => authRepository.resetPassword(email: "email"))
           .thenAnswer((_) async => Left(failure));
-      final result = await resetPassword("email");
-      result.fold((l) => expect(l, failure), (r) => null);
+      final result = resetPassword("email");
+      expectLater(
+          result,
+          emitsInOrder([
+            const EsqueciSenhaState.loading(),
+            EsqueciSenhaState.failure(failure: failure),
+          ]));
     });
   });
 }

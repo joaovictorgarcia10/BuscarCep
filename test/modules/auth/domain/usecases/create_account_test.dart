@@ -1,5 +1,6 @@
 import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
+import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -19,12 +20,21 @@ void main() {
   group("CreateAccount", () {
     test("CreateAccount - Success", () async {
       when(
-        () =>
-            authRepository.createAccount(email: "email", password: "password"),
+        () => authRepository.createAccount(
+          email: "email",
+          password: "password",
+        ),
       ).thenAnswer((_) async => const Right(true));
-      final result = await createAccount(
+
+      final result = createAccount(
           CreateAccountParams(email: "email", password: "password"));
-      result.fold((l) => null, (r) => expect(r, true));
+
+      expectLater(
+          result,
+          emitsInOrder(const [
+            CadastroState.loading(),
+            CadastroState.success(),
+          ]));
     });
 
     test("CreateAccount - Failure", () async {
@@ -32,9 +42,16 @@ void main() {
       when(() => authRepository.createAccount(
           email: "email",
           password: "password")).thenAnswer((_) async => Left(failure));
-      final result = await createAccount(
+
+      final result = createAccount(
           CreateAccountParams(email: "email", password: "password"));
-      result.fold((l) => expect(l, failure), (r) => null);
+
+      expectLater(
+          result,
+          emitsInOrder([
+            const CadastroState.loading(),
+            CadastroState.failure(failure: failure),
+          ]));
     });
   });
 }

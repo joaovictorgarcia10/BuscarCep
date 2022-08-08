@@ -14,20 +14,12 @@ class LoginBloc extends Bloc<DoLoginEvent, DoLoginState> {
     on<DoLoginEvent>(_onEvent);
   }
 
-  Future<void> _onEvent(
-    DoLoginEvent event,
-    Emitter<DoLoginState> emit,
-  ) async {
-    emit(const DoLoginState.loading());
-
+  Future<void> _onEvent(DoLoginEvent event, Emitter<DoLoginState> emit) async {
     await event.when(
-      login: (params) async {
-        final result = await _doLogin(
-            DoLoginParams(email: params.email, password: params.password));
-
-        result.fold(
-          (l) => emit(DoLoginState.failure(failure: l)),
-          (r) => emit(DoLoginState.success(user: r)),
+      login: (params) {
+        return emit.onEach<DoLoginState>(
+          _doLogin(params),
+          onData: (data) => emit(data),
         );
       },
     );

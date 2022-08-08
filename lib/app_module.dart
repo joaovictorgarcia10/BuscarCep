@@ -4,7 +4,7 @@ import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/meus_e
 import 'package:clean_arch_aula/shared/features/geolocation/data/services/geolocation_service_impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:clean_arch_aula/shared/features/geolocation/data/repositories/geolocation_repository_impl.dart';
-import 'shared/features/geolocation/domain/usecase/get_geolocation.dart';
+import 'modules/enderecos/features/meus_enderecos/domain/usecases/get_geolocation.dart';
 import 'shared/core/session/session.dart';
 
 class AppModule extends Module {
@@ -16,7 +16,6 @@ class AppModule extends Module {
     // Geolocation
     Bind((i) => GeolocationServiceImpl()),
     Bind((i) => GeolocationRepositoryImpl(i<GeolocationServiceImpl>())),
-    Bind((i) => GetGeolocation(i<GeolocationRepositoryImpl>())),
   ];
 
   @override

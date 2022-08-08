@@ -14,13 +14,11 @@ class CadastroBloc extends Bloc<CadastroEvent, CadastroState> {
 
   Future<void> _onEvent(
       CadastroEvent event, Emitter<CadastroState> emit) async {
-    emit(const CadastroState.loading());
     await event.when(
-      createAccount: (params) async {
-        final result = await _createAccount(params);
-        result.fold(
-          (l) => emit(CadastroState.failure(failure: l)),
-          (r) => emit(const CadastroState.success()),
+      createAccount: (params) {
+        return emit.onEach<CadastroState>(
+          _createAccount(params),
+          onData: (data) => emit(data),
         );
       },
     );

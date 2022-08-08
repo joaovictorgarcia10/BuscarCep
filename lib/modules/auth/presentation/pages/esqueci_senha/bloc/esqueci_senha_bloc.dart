@@ -18,12 +18,10 @@ class EsqueciSenhaBloc extends Bloc<EsqueciSenhaEvent, EsqueciSenhaState> {
     Emitter<EsqueciSenhaState> emit,
   ) async {
     await event.when(
-      resetPassword: (email) async {
-        emit(const EsqueciSenhaState.loading());
-        final result = await _resetPassword(email);
-        result.fold(
-          (l) => emit(EsqueciSenhaState.failure(failure: l)),
-          (r) => emit(const EsqueciSenhaState.success()),
+      resetPassword: (email) {
+        return emit.onEach<EsqueciSenhaState>(
+          _resetPassword(email),
+          onData: (data) => emit(data),
         );
       },
     );
