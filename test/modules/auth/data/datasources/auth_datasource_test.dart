@@ -1,4 +1,4 @@
-// TODO: implementar esses testes
+// TODO: implementar esses testes da melhor forma (dependem do firebase)
 
 import 'package:flutter_test/flutter_test.dart';
 

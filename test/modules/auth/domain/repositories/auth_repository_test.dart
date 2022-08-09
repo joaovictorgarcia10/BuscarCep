@@ -19,8 +19,10 @@ void main() {
       final user = UserModel();
       when(() => authRepository.doLogin(email: "email", password: "password"))
           .thenAnswer((_) async => Right(user));
+
       final response =
           await authRepository.doLogin(email: "email", password: "password");
+
       response.fold((l) => null, (r) => expect(r, user));
     });
 
@@ -28,8 +30,10 @@ void main() {
       final failure = Failure();
       when(() => authRepository.doLogin(email: "email", password: "password"))
           .thenAnswer((_) async => Left(failure));
+
       final response =
           await authRepository.doLogin(email: "email", password: "password");
+
       response.fold((l) => expect(l, failure), (r) => null);
     });
   });
@@ -39,8 +43,10 @@ void main() {
       when(() => authRepository.createAccount(
           email: "email",
           password: "password")).thenAnswer((_) async => const Right(true));
+
       final response = await authRepository.createAccount(
           email: "email", password: "password");
+
       response.fold((l) => null, (r) => expect(r, true));
     });
 
@@ -49,8 +55,10 @@ void main() {
       when(() => authRepository.createAccount(
           email: "email",
           password: "password")).thenAnswer((_) async => Left(failure));
+
       final response = await authRepository.createAccount(
           email: "email", password: "password");
+
       response.fold((l) => expect(l, failure), (r) => null);
     });
   });
@@ -65,8 +73,10 @@ void main() {
 
     test("ResetPassword - Failure", () async {
       final failure = Failure();
+
       when(() => authRepository.resetPassword(email: "email"))
           .thenAnswer((_) async => Left(failure));
+
       final response = await authRepository.resetPassword(email: "email");
       response.fold((l) => expect(l, failure), (r) => null);
     });

@@ -10,6 +10,7 @@ import 'package:clean_arch_aula/modules/auth/presentation/pages/login/login_page
 import 'package:clean_arch_aula/modules/auth/presentation/pages/splash/splash_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:modular_bloc_bind/modular_bloc_bind.dart';
 import 'data/repositories/auth_repository_impl.dart';
 import 'domain/usecases/do_login.dart';
 
@@ -26,9 +27,9 @@ class AuthModule extends Module {
     Bind((i) => ResetPassword(repository: i<AuthRepositoryImpl>())),
 
     // Bloc
-    Bind((i) => LoginBloc(i<DoLogin>())),
-    Bind((i) => CadastroBloc(i<CreateAccount>())),
-    Bind((i) => EsqueciSenhaBloc(i<ResetPassword>()))
+    BlocBind.singleton((i) => LoginBloc(i<DoLogin>())),
+    BlocBind.singleton((i) => CadastroBloc(i<CreateAccount>())),
+    BlocBind.singleton((i) => EsqueciSenhaBloc(i<ResetPassword>()))
   ];
 
   @override

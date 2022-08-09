@@ -8,6 +8,7 @@ import 'package:clean_arch_aula/shared/core/custom_dio/custom_dio.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:modular_bloc_bind/modular_bloc_bind.dart';
 import 'data/datasources/home_datasource_impl.dart';
 
 class HomeModule extends Module {
@@ -29,7 +30,7 @@ class HomeModule extends Module {
     Bind((i) => DisconnectAccount(i<HomeRepositoryImpl>())),
 
     // Blocs
-    Bind(
+    BlocBind.singleton(
       (i) => HomeBloc(
         i<BuscarEndreco>(),
         i<SaveEndereco>(),

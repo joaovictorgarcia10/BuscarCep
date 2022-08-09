@@ -11,6 +11,7 @@ import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain
 import 'package:clean_arch_aula/shared/features/geolocation/data/repositories/geolocation_repository_impl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:modular_bloc_bind/modular_bloc_bind.dart';
 
 class MeusEnderecosModule extends Module {
   @override
@@ -29,8 +30,9 @@ class MeusEnderecosModule extends Module {
     Bind((i) => GetGeolocation(i<GeolocationRepositoryImpl>())),
 
     // Blocs
-    Bind((i) => MeusEnderecosBloc(i<GetListaEnderecos>())),
-    Bind((i) => DetalhesEnderecoBloc(i<DeleteEndereco>(), i<GetGeolocation>())),
+    BlocBind.singleton((i) => MeusEnderecosBloc(i<GetListaEnderecos>())),
+    BlocBind.singleton(
+        (i) => DetalhesEnderecoBloc(i<DeleteEndereco>(), i<GetGeolocation>())),
   ];
 
   @override
