@@ -1,4 +1,5 @@
 import 'package:clean_arch_aula/shared/core/i18n/i18n_localizations.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -27,7 +28,15 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    initI18n().then((_) => Modular.to.pushReplacementNamed("/login"));
+    initI18n().then((_) {
+      FirebaseAuth.instance.authStateChanges().listen((user) {
+        if (user == null) {
+          Modular.to.pushReplacementNamed("/login");
+        } else {
+          Modular.to.pushReplacementNamed("/home");
+        }
+      });
+    });
   }
 
   @override

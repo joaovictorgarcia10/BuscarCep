@@ -1,12 +1,10 @@
 import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
 import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
-import 'package:clean_arch_aula/shared/core/session/session.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'home_datasource.dart';
 
 class HomeDatasourceImpl implements HomeDatasource {
@@ -53,7 +51,7 @@ class HomeDatasourceImpl implements HomeDatasource {
         "uf": endereco.uf,
         "ddd": endereco.ddd,
         "documentReference": endereco.documentReference,
-        "userId": Modular.get<Session>().usuario!.userId,
+        "userId": firebaseAuth.currentUser?.uid,
       };
 
       response.add(map);

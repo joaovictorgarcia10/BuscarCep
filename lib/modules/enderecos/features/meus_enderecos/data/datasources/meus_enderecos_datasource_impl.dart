@@ -1,7 +1,6 @@
-import 'package:clean_arch_aula/shared/core/session/session.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
 import 'meus_enderecos_datasource.dart';
@@ -13,11 +12,9 @@ class MeusEnderecosDatasourceImpl implements MeusEnderecosDatasource {
   @override
   Future<Either<Failure, List<EnderecoModel>>> getListaEnderecos() async {
     try {
-      final userId = Modular.get<Session>().usuario!.userId;
-
       final response = firebaseFirestore
           .collection("enderecos")
-          .where("userId", isEqualTo: userId);
+          .where("userId", isEqualTo: FirebaseAuth.instance.currentUser?.uid);
 
       final List<EnderecoModel> enderecos = await response.get().then((query) =>
           query.docs.map((e) => EnderecoModel.fromFirebase(e)).toList());

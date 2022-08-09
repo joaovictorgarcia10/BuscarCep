@@ -1,11 +1,11 @@
-import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 
 class MenuLateralWidget extends StatefulWidget {
   final Widget options;
-  final User? user;
+  final User user;
 
   const MenuLateralWidget({
     Key? key,
@@ -47,7 +47,7 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
                       ),
                       child: Center(
                           child: Text(
-                        widget.user?.email?.substring(0, 1).toUpperCase() ?? "",
+                        widget.user.email?.substring(0, 1).toUpperCase() ?? "",
                         style: AppTextStyles.title,
                       )),
                     ),
@@ -56,9 +56,9 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(widget.user?.nome ?? ""),
+                        Text(widget.user.displayName ?? ""),
                         const SizedBox(height: 5.0),
-                        Text(widget.user?.email ?? ""),
+                        Text(widget.user.email ?? ""),
                       ],
                     )
                   ],

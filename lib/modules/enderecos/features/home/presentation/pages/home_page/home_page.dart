@@ -4,7 +4,6 @@ import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pag
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/widgets/menu_lateral_items.dart';
-import 'package:clean_arch_aula/shared/core/session/session.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/widgets/menu_lateral/menu_lateral_widget.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
@@ -17,6 +16,7 @@ import 'package:clean_arch_aula/shared/widgets/error_modal/error_modal_widget.da
 import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/message_modal/message_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/text_form_field/text_form_field_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuLateralWidget(
-        user: Modular.get<Session>().usuario,
+        user: FirebaseAuth.instance.currentUser!,
         options: MenuLateralItems(),
       ),
       appBar: AppBar(
