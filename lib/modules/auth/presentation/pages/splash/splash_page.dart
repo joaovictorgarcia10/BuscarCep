@@ -25,6 +25,17 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 
+  Locale localeResolutionCallback(locale, supportedLocales) {
+    for (var supportedLocale in supportedLocales) {
+      if (locale != null &&
+          supportedLocale.languageCode == locale.languageCode &&
+          supportedLocale.countryCode == locale.countryCode) {
+        return supportedLocale;
+      }
+    }
+    return supportedLocales.first;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -43,19 +54,11 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Icon(Icons.location_on_outlined, size: 100.0),
+        child: Icon(
+          Icons.location_on_outlined,
+          size: 100.0,
+        ),
       ),
     );
   }
-}
-
-Locale localeResolutionCallback(locale, supportedLocales) {
-  for (var supportedLocale in supportedLocales) {
-    if (locale != null &&
-        supportedLocale.languageCode == locale.languageCode &&
-        supportedLocale.countryCode == locale.countryCode) {
-      return supportedLocale;
-    }
-  }
-  return supportedLocales.first;
 }
