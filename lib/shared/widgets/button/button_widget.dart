@@ -4,16 +4,16 @@ import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;
-  final VoidCallback onTap;
   final Color color;
   final Color? borderColor;
+  final VoidCallback onTap;
 
   const ButtonWidget({
     Key? key,
     required this.title,
-    required this.onTap,
     required this.color,
     this.borderColor,
+    required this.onTap,
   }) : super(key: key);
 
   @override

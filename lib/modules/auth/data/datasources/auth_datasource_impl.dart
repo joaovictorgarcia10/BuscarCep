@@ -61,7 +61,6 @@ class AuthDatasourceImpl implements AuthDatasource {
   Future<Either<Failure, bool>> resetPassword({required String email}) async {
     try {
       await firebaseAuth.sendPasswordResetEmail(email: email);
-
       return const Right(true);
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {

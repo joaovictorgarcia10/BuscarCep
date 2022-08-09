@@ -21,7 +21,5 @@ class BuscarEndreco implements StreamUseCase<HomeState, BuscarEndrecoParams> {
 
 class BuscarEndrecoParams {
   final String cep;
-  BuscarEndrecoParams({
-    required this.cep,
-  });
+  BuscarEndrecoParams({required this.cep});
 }

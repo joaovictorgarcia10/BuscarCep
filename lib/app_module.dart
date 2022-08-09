@@ -8,7 +8,6 @@ import 'package:clean_arch_aula/shared/features/geolocation/data/repositories/ge
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-    // Geolocation
     Bind((i) => GeolocationServiceImpl()),
     Bind((i) => GeolocationRepositoryImpl(i<GeolocationServiceImpl>())),
   ];

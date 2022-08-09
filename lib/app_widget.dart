@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Buscar Cep',
+      title: 'Buscar Cep App',
       theme: AppTheme().appTheme(),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
