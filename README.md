@@ -1,4 +1,4 @@
-# Clean Arch Classroom
+# Buscar CEP App
 
 A simple Flutter project, structured following the Clean Architecture and Clean Code principles.
 
