@@ -13,7 +13,7 @@ A simple Flutter project, structured following the Clean Architecture and Clean 
 - [x] Redirect to Google Maps and shows the best route from your current location to the selected address      
 
 To DO:
-- [ ] Finish Internacionalization Keys
+- [ ] Finish Internacionalization String Keys
 - [ ] Finish Unit Tests
 
 ## Organization
@@ -49,17 +49,6 @@ Each module are divided in some layers, so that each layer has its responsibilit
 <img src="https://github.com/joaovictorgarcia10/clean_arch_aula/blob/master/assets/images/preview/Screenshot_1657817597.png" width="400" height="650"/>
 <img src="https://github.com/joaovictorgarcia10/clean_arch_aula/blob/master/assets/images/preview/Screenshot_1657817617.png" width="400" height="650"/>
 <img src="https://github.com/joaovictorgarcia10/clean_arch_aula/blob/master/assets/images/preview/Screenshot_1657817620.png" width="400" height="650"/>
-
-
-
-
-## Some References
-
-- Clean Architecture: https://www.youtube.com/playlist?list=PLRpTFz5_57cvCYRhHUui2Bis-5Ybh78TS
-- Firebase Integration: https://www.youtube.com/watch?v=14Ahr8S1psk&list=PLRpTFz5_57cvYvKja5Ex92aQ_HNADo4Oh&index=1&t=266s
-- Geolocation: https://www.youtube.com/watch?v=TruOM8pB2_k&t=666s
-- FlutterFire Documentation: https://firebase.flutter.dev/docs/overview/
-- Clean Dart Documentation: https://github.com/Flutterando/Clean-Dart
 
 
 
