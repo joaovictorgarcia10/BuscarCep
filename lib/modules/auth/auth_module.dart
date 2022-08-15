@@ -25,7 +25,6 @@ class AuthModule extends Module {
     Bind((i) => DoLogin(repository: i<AuthRepositoryImpl>())),
     Bind((i) => CreateAccount(repository: i<AuthRepositoryImpl>())),
     Bind((i) => ResetPassword(repository: i<AuthRepositoryImpl>())),
-
     // Bloc
     BlocBind.singleton((i) => LoginBloc(i<DoLogin>())),
     BlocBind.singleton((i) => CadastroBloc(i<CreateAccount>())),

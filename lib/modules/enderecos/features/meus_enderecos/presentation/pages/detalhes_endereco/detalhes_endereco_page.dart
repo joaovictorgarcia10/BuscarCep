@@ -96,50 +96,52 @@ class _DetalhesEnderecoPageState extends State<DetalhesEnderecoPage> {
         title: const Text('Detalhes do Endereço'),
         elevation: 5,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              EnderecoCardWidget(endereco: widget.endereco),
-              const SizedBox(height: 50.0),
-              ButtonWidget(
-                title: "Ver no Mapa",
-                color: AppColors.green,
-                onTap: () {
-                  bloc.add(const DetalhesEnderecoEvent.getGeolocation());
-                },
-              ),
-              const SizedBox(height: 20.0),
-              ButtonWidget(
-                title: "Apagar Endereço",
-                color: Colors.transparent,
-                borderColor: AppColors.white,
-                onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(22.0),
-                        topRight: Radius.circular(22.0),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                EnderecoCardWidget(endereco: widget.endereco),
+                const SizedBox(height: 50.0),
+                ButtonWidget(
+                  title: "Ver no Mapa",
+                  color: AppColors.green,
+                  onTap: () {
+                    bloc.add(const DetalhesEnderecoEvent.getGeolocation());
+                  },
+                ),
+                const SizedBox(height: 20.0),
+                ButtonWidget(
+                  title: "Apagar Endereço",
+                  color: Colors.transparent,
+                  borderColor: AppColors.white,
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(22.0),
+                          topRight: Radius.circular(22.0),
+                        ),
                       ),
-                    ),
-                    builder: (context) {
-                      return MessageModalWidget(
-                        message: "Quer mesmo apagar este endereço?",
-                        onConfirm: () {
-                          Navigator.pop(context);
-                          bloc.add(DetalhesEnderecoEvent.deleteEndereco(
-                              params: DeleteEnderecoParams(
-                            id: widget.endereco.documentReference!.id,
-                          )));
-                        },
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
+                      builder: (context) {
+                        return MessageModalWidget(
+                          message: "Quer mesmo apagar este endereço?",
+                          onConfirm: () {
+                            Navigator.pop(context);
+                            bloc.add(DetalhesEnderecoEvent.deleteEndereco(
+                                params: DeleteEnderecoParams(
+                              id: widget.endereco.documentReference!.id,
+                            )));
+                          },
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

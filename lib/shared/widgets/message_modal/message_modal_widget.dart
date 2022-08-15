@@ -17,28 +17,29 @@ class MessageModalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(25.0),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.35,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(message, style: AppTextStyles.bodyText),
-            const SizedBox(height: 40.0),
-            ButtonWidget(
-              title: "Sim",
-              onTap: onConfirm,
-              color: AppColors.green,
-            ),
-            const SizedBox(height: 15.0),
-            ButtonWidget(
-              title: "Não",
-              onTap: onDismiss ?? () => Navigator.pop(context),
-              color: Colors.transparent,
-              borderColor: AppColors.white,
-            )
-          ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: SizedBox(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(message, style: AppTextStyles.bodyText),
+              const SizedBox(height: 40.0),
+              ButtonWidget(
+                title: "Sim",
+                onTap: onConfirm,
+                color: AppColors.green,
+              ),
+              const SizedBox(height: 15.0),
+              ButtonWidget(
+                title: "Não",
+                onTap: onDismiss ?? () => Navigator.pop(context),
+                color: Colors.transparent,
+                borderColor: AppColors.white,
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -34,9 +34,20 @@ class _HomePageState extends State<HomePage> {
   final bloc = Modular.get<HomeBloc>();
   late StreamSubscription _subscription;
 
+  bool initialAnimationOn = false;
+
+  initialAnimation() async {
+    await Future.delayed(const Duration(milliseconds: 800));
+    setState(() {
+      initialAnimationOn = true;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    initialAnimation();
+
     _subscription = bloc.stream.listen((state) {
       state.maybeWhen(
         saveEnderecoSuccess: () {
@@ -117,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                     keyboardType: TextInputType.number,
                     validator: (text) => AppFormValidadors().cepValidator(text),
                   ),
-                  const SizedBox(height: 50.0),
+                  const SizedBox(height: 25.0),
                   BlocBuilder<HomeBloc, HomeState>(
                       bloc: bloc,
                       builder: (context, state) {
@@ -159,9 +170,12 @@ class _HomePageState extends State<HomePage> {
                           orElse: () => SizedBox(
                             child: Column(
                               children: [
-                                Image.asset(
-                                  "assets/images/img1.png",
-                                  height: 175,
+                                AnimatedContainer(
+                                  height: initialAnimationOn ? 150 : 50,
+                                  duration: const Duration(milliseconds: 800),
+                                  child: Image.asset(
+                                    "assets/images/img1.png",
+                                  ),
                                 ),
                                 const SizedBox(height: 20.0),
                                 const Text(
@@ -174,7 +188,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       }),
-                  const SizedBox(height: 100.0),
+                  const SizedBox(height: 30.0),
                   ButtonWidget(
                     title: "Buscar Endereço",
                     color: AppColors.green,

@@ -39,15 +39,19 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    initI18n().then((_) {
-      FirebaseAuth.instance.authStateChanges().listen((user) {
-        if (user == null) {
-          Modular.to.pushReplacementNamed("/login");
-        } else {
-          Modular.to.pushReplacementNamed("/home");
-        }
-      });
-    });
+    initI18n().then(
+      (_) {
+        FirebaseAuth.instance.authStateChanges().listen(
+          (user) {
+            if (user == null) {
+              Modular.to.pushReplacementNamed("/login");
+            } else {
+              Modular.to.pushReplacementNamed("/home");
+            }
+          },
+        );
+      },
+    );
   }
 
   @override

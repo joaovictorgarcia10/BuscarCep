@@ -107,13 +107,6 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.green,
-        onPressed: () {
-          bloc.add(const MeusEnderecosEvent.getListaEnderecos());
-        },
-        child: const Icon(Icons.refresh_outlined),
-      ),
     );
   }
 }

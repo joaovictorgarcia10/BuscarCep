@@ -28,7 +28,6 @@ class HomeModule extends Module {
     Bind((i) => BuscarEndreco(i<HomeRepositoryImpl>())),
     Bind((i) => SaveEndereco(i<HomeRepositoryImpl>())),
     Bind((i) => DisconnectAccount(i<HomeRepositoryImpl>())),
-
     // Blocs
     BlocBind.singleton(
       (i) => HomeBloc(

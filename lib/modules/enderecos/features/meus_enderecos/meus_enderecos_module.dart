@@ -20,7 +20,6 @@ class MeusEnderecosModule extends Module {
     Bind((i) => MeusEnderecosDatasourceImpl(
           firebaseFirestore: FirebaseFirestore.instance,
         )),
-
     //Repository
     Bind((i) => MeusEnderecosRepositoryImpl(i<MeusEnderecosDatasourceImpl>())),
 
@@ -28,7 +27,6 @@ class MeusEnderecosModule extends Module {
     Bind((i) => GetListaEnderecos(i<MeusEnderecosRepositoryImpl>())),
     Bind((i) => DeleteEndereco(i<MeusEnderecosRepositoryImpl>())),
     Bind((i) => GetGeolocation(i<GeolocationRepositoryImpl>())),
-
     // Blocs
     BlocBind.singleton((i) => MeusEnderecosBloc(i<GetListaEnderecos>())),
     BlocBind.singleton(
