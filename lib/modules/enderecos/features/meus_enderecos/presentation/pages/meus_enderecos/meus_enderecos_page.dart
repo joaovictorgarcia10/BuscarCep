@@ -4,6 +4,7 @@ import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presen
 import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/widgets/error_modal/error_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/info_card/info_card_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/list_tile/list_tile_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/message_card/message_card_widget.dart';
@@ -66,34 +67,79 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Meus Endereços'),
-        elevation: 5,
-      ),
       body: BlocBuilder<MeusEnderecosBloc, MeusEnderecosState>(
         bloc: bloc,
         builder: (context, state) {
           return state.maybeWhen(
             getListaEnderecosSuccess: (listaEnderecos) {
               if (listaEnderecos.isNotEmpty) {
-                return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ListView.builder(
-                    itemCount: listaEnderecos.length,
-                    itemBuilder: (context, index) {
-                      Endereco endereco = listaEnderecos[index];
-                      return ListTileWidget(
-                        leadingIcon: Icons.location_on_outlined,
-                        title: "${endereco.logradouro}",
-                        subtitle:
-                            "${endereco.bairro},  ${endereco.localidade} - ${endereco.ddd}",
-                        trailingIcon: Icons.keyboard_arrow_right_outlined,
-                        onTapTrailing: () {
-                          Modular.to
-                              .pushNamed("./detalhes", arguments: endereco);
-                        },
-                      );
-                    },
+                return NestedScrollView(
+                  floatHeaderSlivers: true,
+                  headerSliverBuilder: (context, innerBoxIsScrolled) {
+                    return [
+                      SliverAppBar(
+                        expandedHeight: 250.0,
+                        forceElevated: true,
+                        pinned: true,
+                        floating: true,
+                        snap: true,
+                        title: const Text('Meus Endereços'),
+                        flexibleSpace: FlexibleSpaceBar(
+                          background: Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/img2.png"),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    InfoCardWidget(
+                                      title: "Endereços",
+                                      value: listaEnderecos.length.toString(),
+                                    ),
+                                    const SizedBox(width: 20.0),
+                                    InfoCardWidget(
+                                      title: "Cidades",
+                                      value: listaEnderecos.length.toString(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ];
+                  },
+                  body: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                      right: 10.0,
+                      top: 40.0,
+                    ),
+                    child: ListView.builder(
+                      itemCount: listaEnderecos.length,
+                      itemBuilder: (context, index) {
+                        Endereco endereco = listaEnderecos[index];
+                        return ListTileWidget(
+                          leadingIcon: Icons.location_on_outlined,
+                          title: "${endereco.logradouro}",
+                          subtitle:
+                              "${endereco.bairro},  ${endereco.localidade} - ${endereco.ddd}",
+                          trailingIcon: Icons.keyboard_arrow_right_outlined,
+                          onTapTrailing: () {
+                            Modular.to
+                                .pushNamed("./detalhes", arguments: endereco);
+                          },
+                        );
+                      },
+                    ),
                   ),
                 );
               }
