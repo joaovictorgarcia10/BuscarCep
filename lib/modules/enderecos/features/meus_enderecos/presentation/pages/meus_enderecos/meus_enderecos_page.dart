@@ -78,7 +78,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
-                        expandedHeight: 250.0,
+                        expandedHeight: 300.0,
                         forceElevated: true,
                         pinned: true,
                         floating: true,
@@ -114,6 +114,12 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                             ),
                           ),
                         ),
+                        actions: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.search),
+                          )
+                        ],
                       ),
                     ];
                   },
@@ -121,9 +127,10 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                     padding: const EdgeInsets.only(
                       left: 10.0,
                       right: 10.0,
-                      top: 40.0,
+                      top: 20.0,
                     ),
                     child: ListView.builder(
+                      shrinkWrap: true,
                       itemCount: listaEnderecos.length,
                       itemBuilder: (context, index) {
                         Endereco endereco = listaEnderecos[index];

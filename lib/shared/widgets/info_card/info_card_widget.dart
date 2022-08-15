@@ -14,10 +14,10 @@ class InfoCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 10.0,
+      elevation: 20.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22.0)),
       child: SizedBox(
-        height: 80,
+        height: 100,
         width: 150,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
