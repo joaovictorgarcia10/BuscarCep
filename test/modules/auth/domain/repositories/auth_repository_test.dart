@@ -17,6 +17,7 @@ void main() {
   group("AuthRepository - DoLogin", () {
     test("DoLogin - Success", () async {
       final user = UserModel();
+
       when(() => authRepository.doLogin(email: "email", password: "password"))
           .thenAnswer((_) async => Right(user));
 

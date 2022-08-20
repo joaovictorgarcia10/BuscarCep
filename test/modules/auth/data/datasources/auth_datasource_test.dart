@@ -18,9 +18,8 @@ void main() {
     test("doLogin - success", () async {
       final user = UserModel();
 
-      when(
-        () => datasource.doLogin(email: "email", password: "senha"),
-      ).thenAnswer((_) async => Right(user));
+      when(() => datasource.doLogin(email: "email", password: "senha"))
+          .thenAnswer((_) async => Right(user));
 
       final result = await datasource.doLogin(
         email: "email",
