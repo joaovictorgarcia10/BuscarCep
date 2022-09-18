@@ -12,9 +12,6 @@ A simple Flutter project, structured following the Clean Architecture and Clean 
 - [x] Geolocation
 - [x] Redirect to Google Maps and shows the best route from your current location to the selected address      
 
-To DO:
-- [ ] Finish Internacionalization String Keys
-- [ ] Finish Unit Tests
 
 ## Organization
 
