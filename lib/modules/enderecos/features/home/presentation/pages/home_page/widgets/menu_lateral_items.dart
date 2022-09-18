@@ -1,7 +1,7 @@
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
-import 'package:clean_arch_aula/shared/widgets/list_tile/list_tile_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/message_modal/message_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/general/list_tile/list_tile_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/message_modal/message_modal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

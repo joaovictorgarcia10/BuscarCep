@@ -4,11 +4,11 @@ import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presen
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_event.dart';
 import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/widgets/button/button_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/endereco_card/endereco_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/error_modal/error_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/message_modal/message_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/cards/endereco_card/endereco_card_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/error_modal/error_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/message_modal/message_modal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

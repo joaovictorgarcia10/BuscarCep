@@ -5,9 +5,9 @@ import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/ca
 import 'package:clean_arch_aula/shared/core/i18n/i18n_string_extension.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
-import 'package:clean_arch_aula/shared/widgets/button/button_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/text_form_field/text_form_field_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/general/text_form_field/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

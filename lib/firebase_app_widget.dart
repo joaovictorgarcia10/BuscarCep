@@ -2,7 +2,7 @@
 
 import 'package:clean_arch_aula/app_widget.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_theme.dart';
-import 'package:clean_arch_aula/shared/widgets/error_card/error_card_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/cards/error_card/error_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 

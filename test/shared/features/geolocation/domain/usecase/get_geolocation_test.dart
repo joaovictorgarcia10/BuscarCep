@@ -1,4 +1,3 @@
-import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/usecases/get_geolocation.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
 import 'package:clean_arch_aula/shared/core/error/failure.dart';

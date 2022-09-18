@@ -2,12 +2,11 @@ import 'dart:async';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_event.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
 import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/widgets/error_modal/error_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/info_card/info_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/list_tile/list_tile_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/message_card/message_card_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/error_modal/error_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/cards/info_card/info_card_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/general/list_tile/list_tile_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/cards/message_card/message_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -73,12 +72,18 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
           return state.maybeWhen(
             getListaEnderecosSuccess: (listaEnderecos) {
               if (listaEnderecos.isNotEmpty) {
+                List<String> listaCidades = [];
+
+                for (var e in listaEnderecos) {
+                  if (e.localidade != null) listaCidades.add(e.localidade!);
+                }
+
                 return NestedScrollView(
                   floatHeaderSlivers: true,
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
-                        expandedHeight: 300.0,
+                        expandedHeight: 200.0,
                         forceElevated: true,
                         pinned: true,
                         floating: true,
@@ -106,7 +111,10 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                                     const SizedBox(width: 20.0),
                                     InfoCardWidget(
                                       title: "Cidades",
-                                      value: listaEnderecos.length.toString(),
+                                      value: listaCidades
+                                          .toSet()
+                                          .length
+                                          .toString(),
                                     ),
                                   ],
                                 ),
@@ -114,12 +122,6 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                             ),
                           ),
                         ),
-                        actions: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.search),
-                          )
-                        ],
                       ),
                     ];
                   },
