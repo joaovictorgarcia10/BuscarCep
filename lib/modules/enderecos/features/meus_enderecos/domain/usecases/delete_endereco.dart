@@ -1,6 +1,6 @@
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/repositories/meus_enderecos_repository.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
-import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
+import 'package:clean_arch_aula/shared/core/custom_usecase/custom_usecase.dart';
 
 class DeleteEndereco
     implements StreamUseCase<DetalhesEnderecoState, DeleteEnderecoParams> {

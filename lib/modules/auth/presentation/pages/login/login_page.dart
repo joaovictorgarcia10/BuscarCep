@@ -23,11 +23,10 @@ class _LoginPageState extends State<LoginPage> {
   final _bloc = Modular.get<LoginBloc>();
   late StreamSubscription subscription;
 
-  // FORMULÁRIO
   final _formKey = GlobalKey<FormState>();
+  TextEditingController emailTextController = TextEditingController();
+  TextEditingController passwordTextController = TextEditingController();
   bool obscureTextPassword = true;
-  TextEditingController emailText = TextEditingController();
-  TextEditingController passwordText = TextEditingController();
 
   @override
   void initState() {
@@ -49,9 +48,7 @@ class _LoginPageState extends State<LoginPage> {
           showModalBottomSheet(
             context: context,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(25.0),
-              ),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
             ),
             isDismissible: false,
             isScrollControlled: false,
@@ -73,8 +70,8 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     super.dispose();
     subscription.cancel();
-    emailText.dispose();
-    passwordText.dispose();
+    emailTextController.dispose();
+    passwordTextController.dispose();
   }
 
   @override
@@ -90,8 +87,8 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 60.0),
               Row(
                 children: [
-                  const Icon(Icons.location_on_outlined, size: 52),
-                  const SizedBox(width: 10),
+                  const Icon(Icons.location_on_outlined, size: 52.0),
+                  const SizedBox(width: 10.0),
                   Text(
                     "login_page_label_1".i18n(),
                     style: AppTextStyles.title,
@@ -104,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormFieldWidget(
-                      controller: emailText,
+                      controller: emailTextController,
                       label: "login_page_label_2".i18n(),
                       prefixIcon: Icons.email_outlined,
                       keyboardType: TextInputType.emailAddress,
@@ -112,9 +109,11 @@ class _LoginPageState extends State<LoginPage> {
                           AppFormValidadors().emailValidator(text),
                     ),
                     TextFormFieldWidget(
-                      controller: passwordText,
+                      controller: passwordTextController,
                       label: "login_page_label_3".i18n(),
                       obscureText: obscureTextPassword,
+                      keyboardType: TextInputType.text,
+                      prefixIcon: Icons.vpn_key_outlined,
                       suffixIcon: obscureTextPassword
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
@@ -123,7 +122,6 @@ class _LoginPageState extends State<LoginPage> {
                           obscureTextPassword = !obscureTextPassword;
                         });
                       },
-                      prefixIcon: Icons.vpn_key_outlined,
                       validator: (text) =>
                           AppFormValidadors().passwordValidator(text),
                     ),
@@ -149,8 +147,8 @@ class _LoginPageState extends State<LoginPage> {
                     _bloc.add(
                       DoLoginEvent.login(
                         params: DoLoginParams(
-                          email: emailText.text,
-                          password: passwordText.text,
+                          email: emailTextController.text,
+                          password: passwordTextController.text,
                         ),
                       ),
                     );

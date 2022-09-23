@@ -1,6 +1,6 @@
 import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/login/bloc/login_state.dart';
-import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
+import 'package:clean_arch_aula/shared/core/custom_usecase/custom_usecase.dart';
 
 class DoLogin extends StreamUseCase<DoLoginState, DoLoginParams> {
   final AuthRepository repository;

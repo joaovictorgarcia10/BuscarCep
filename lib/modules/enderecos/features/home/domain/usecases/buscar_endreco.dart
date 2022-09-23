@@ -1,6 +1,6 @@
 import 'package:clean_arch_aula/modules/enderecos/features/home/domain/repositories/home_repository.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
-import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
+import 'package:clean_arch_aula/shared/core/custom_usecase/custom_usecase.dart';
 
 class BuscarEndreco implements StreamUseCase<HomeState, BuscarEndrecoParams> {
   final HomeRepository _repository;
