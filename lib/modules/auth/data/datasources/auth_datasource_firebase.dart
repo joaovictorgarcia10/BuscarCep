@@ -4,9 +4,9 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'auth_datasource.dart';
 
-class AuthDatasourceImpl implements AuthDatasource {
+class AuthDatasourceFirebase implements AuthDatasource {
   final FirebaseAuth firebaseAuth;
-  AuthDatasourceImpl({required this.firebaseAuth});
+  AuthDatasourceFirebase({required this.firebaseAuth});
 
   @override
   Future<Either<Failure, UserModel>> doLogin(

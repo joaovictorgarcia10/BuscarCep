@@ -7,19 +7,28 @@
         {
             "name": "clean_arch_aula",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": [
+                "--dart-define=env=dev",
+            ],
         },
         {
             "name": "clean_arch_aula (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define=env=dev",
+            ],
         },
         {
             "name": "clean_arch_aula (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--dart-define=env=dev",
+            ],
         }
     ]
 }
