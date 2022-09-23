@@ -1,5 +1,5 @@
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
-import 'package:clean_arch_aula/shared/features/geolocation/domain/repositories/geolocation_repository.dart';
+import 'package:clean_arch_aula/shared/utils/geolocation/domain/repositories/geolocation_repository.dart';
 import 'package:clean_arch_aula/shared/core/custom_usecase/custom_usecase.dart';
 
 class GetGeolocation implements StreamUseCase<DetalhesEnderecoState, NoParams> {

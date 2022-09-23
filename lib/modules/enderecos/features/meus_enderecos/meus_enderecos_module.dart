@@ -8,7 +8,7 @@ import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presen
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_bloc.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/meus_enderecos_page.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/usecases/get_geolocation.dart';
-import 'package:clean_arch_aula/shared/features/geolocation/data/repositories/geolocation_repository_impl.dart';
+import 'package:clean_arch_aula/shared/utils/geolocation/data/repositories/geolocation_repository_impl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modular_bloc_bind/modular_bloc_bind.dart';
