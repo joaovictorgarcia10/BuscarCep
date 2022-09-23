@@ -1,6 +1,6 @@
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
-import 'package:clean_arch_aula/shared/features/geolocation/domain/entities/geolocation.dart';
-import 'package:clean_arch_aula/shared/features/geolocation/domain/repositories/geolocation_repository.dart';
+import 'package:clean_arch_aula/shared/utils/geolocation/domain/entities/geolocation.dart';
+import 'package:clean_arch_aula/shared/utils/geolocation/domain/repositories/geolocation_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
