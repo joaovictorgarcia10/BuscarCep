@@ -1,7 +1,7 @@
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class CustomRepositorySettings {
+abstract class CustomRepository {
   String get repository;
 
   Future<Either<Failure, T>> selectRepository<T>({
@@ -16,22 +16,22 @@ abstract class CustomRepositorySettings {
   }
 }
 
-class DevRepositorySettings extends CustomRepositorySettings {
+class DevRepository extends CustomRepository {
   @override
   String get repository => "local";
 }
 
-class HmlRepositorySettings extends CustomRepositorySettings {
+class HmlRepository extends CustomRepository {
   @override
   String get repository => "remote";
 }
 
-class ProdRepositorySettings extends CustomRepositorySettings {
+class ProdRepository extends CustomRepository {
   @override
   String get repository => "remote";
 }
 
-// class TestRepositorySettings extends CustomRepositorySettings {
+// class TestRepository extends CustomRepository {
 //   bool _localMode = true;
 
 //   void useLocal() => _localMode = true;

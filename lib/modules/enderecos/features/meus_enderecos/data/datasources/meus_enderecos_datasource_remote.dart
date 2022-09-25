@@ -5,9 +5,9 @@ import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
 import 'meus_enderecos_datasource.dart';
 
-class MeusEnderecosDatasourceImpl implements MeusEnderecosDatasource {
+class MeusEnderecosDatasourceRemote implements MeusEnderecosDatasource {
   final FirebaseFirestore firebaseFirestore;
-  MeusEnderecosDatasourceImpl({required this.firebaseFirestore});
+  MeusEnderecosDatasourceRemote({required this.firebaseFirestore});
 
   @override
   Future<Either<Failure, List<EnderecoModel>>> getListaEnderecos() async {

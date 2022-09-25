@@ -7,12 +7,12 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'home_datasource.dart';
 
-class HomeDatasourceImpl implements HomeDatasource {
+class HomeDatasourceRemote implements HomeDatasource {
   final Dio dio;
   final FirebaseFirestore firebaseFirestore;
   final FirebaseAuth firebaseAuth;
 
-  HomeDatasourceImpl({
+  HomeDatasourceRemote({
     required this.dio,
     required this.firebaseFirestore,
     required this.firebaseAuth,

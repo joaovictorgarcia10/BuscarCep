@@ -1,3 +1,5 @@
+import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_local.dart';
+import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_remote.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/data/repositories/home_repository_impl.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/disconnect_account.dart';
@@ -5,29 +7,37 @@ import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:clean_arch_aula/shared/core/custom_dio/custom_dio.dart';
+import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modular_bloc_bind/modular_bloc_bind.dart';
-import 'data/datasources/home_datasource_impl.dart';
 
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
     // Datasources
     Bind(
-      (i) => HomeDatasourceImpl(
+      (i) => HomeDatasourceRemote(
         dio: CustomDio(),
         firebaseFirestore: FirebaseFirestore.instance,
         firebaseAuth: FirebaseAuth.instance,
       ),
     ),
+    Bind((i) => HomeDatasourceLocal()),
+
     //Repository
-    Bind((i) => HomeRepositoryImpl(i<HomeDatasourceImpl>())),
+    Bind((i) => HomeRepositoryImpl(
+          datasourceLocal: i<HomeDatasourceLocal>(),
+          datasourceRemote: i<HomeDatasourceRemote>(),
+          customRepository: i<CustomRepository>(),
+        )),
+
     // UseCases
     Bind((i) => BuscarEndreco(i<HomeRepositoryImpl>())),
     Bind((i) => SaveEndereco(i<HomeRepositoryImpl>())),
     Bind((i) => DisconnectAccount(i<HomeRepositoryImpl>())),
+
     // Blocs
     BlocBind.singleton(
       (i) => HomeBloc(

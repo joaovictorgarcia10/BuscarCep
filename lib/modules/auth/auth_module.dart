@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/modules/auth/data/datasources/auth_datasource_firebase.dart';
+import 'package:clean_arch_aula/modules/auth/data/datasources/auth_datasource_remote.dart';
 import 'package:clean_arch_aula/modules/auth/data/datasources/auth_datasource_local.dart';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/reset_password.dart';
@@ -9,7 +9,7 @@ import 'package:clean_arch_aula/modules/auth/presentation/pages/esqueci_senha/es
 import 'package:clean_arch_aula/modules/auth/presentation/pages/login/bloc/login_bloc.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/login/login_page.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/splash/splash_page.dart';
-import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository_settings.dart';
+import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modular_bloc_bind/modular_bloc_bind.dart';
@@ -20,15 +20,15 @@ class AuthModule extends Module {
   @override
   final List<Bind> binds = [
     // Datasources
-    Bind((i) => AuthDatasourceFirebase(firebaseAuth: FirebaseAuth.instance)),
+    Bind((i) => AuthDatasourceRemote(firebaseAuth: FirebaseAuth.instance)),
     Bind((i) => AuthDatasourceLocal()),
 
     //Repository
     Bind(
       (i) => AuthRepositoryImpl(
-        datasourceFirebase: i<AuthDatasourceFirebase>(),
+        datasourceRemote: i<AuthDatasourceRemote>(),
         datasourceLocal: i<AuthDatasourceLocal>(),
-        repositorySettings: i<CustomRepositorySettings>(),
+        customRepository: i<CustomRepository>(),
       ),
     ),
 

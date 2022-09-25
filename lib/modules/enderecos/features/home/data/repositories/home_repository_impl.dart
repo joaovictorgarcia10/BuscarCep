@@ -1,30 +1,45 @@
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource.dart';
+import 'package:dartz/dartz.dart';
+import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_local.dart';
+import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_remote.dart';
 import 'package:clean_arch_aula/modules/enderecos/features/home/domain/repositories/home_repository.dart';
 import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
-import 'package:dartz/dartz.dart';
+import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
-  final HomeDatasource _homeDatasource;
-  HomeRepositoryImpl(this._homeDatasource);
+  final HomeDatasourceRemote datasourceRemote;
+  final HomeDatasourceLocal datasourceLocal;
+  final CustomRepository customRepository;
+
+  HomeRepositoryImpl({
+    required this.datasourceRemote,
+    required this.datasourceLocal,
+    required this.customRepository,
+  });
 
   @override
   Future<Either<Failure, Endereco>> buscarEndereco(
       {required String cep}) async {
-    final result = await _homeDatasource.buscarEndreco(cep: cep);
-    return result;
+    return customRepository.selectRepository(
+      local: () => datasourceLocal.buscarEndreco(cep: cep),
+      remote: () => datasourceRemote.buscarEndreco(cep: cep),
+    );
   }
 
   @override
   Future<Either<Failure, bool>> saveEndereco(
       {required Endereco endereco}) async {
-    final result = await _homeDatasource.saveEndereco(endereco: endereco);
-    return result;
+    return customRepository.selectRepository(
+      local: () => datasourceLocal.saveEndereco(endereco: endereco),
+      remote: () => datasourceRemote.saveEndereco(endereco: endereco),
+    );
   }
 
   @override
   Future<Either<Failure, bool>> disconnet() {
-    final result = _homeDatasource.disconnetAccount();
-    return result;
+    return customRepository.selectRepository(
+      local: () => datasourceLocal.disconnetAccount(),
+      remote: () => datasourceRemote.disconnetAccount(),
+    );
   }
 }
