@@ -1,12 +1,10 @@
 import 'package:clean_arch_aula/shared/core/error/failure.dart';
-import 'package:clean_arch_aula/shared/utils/geolocation/data/services/geolocation_service.dart';
-import 'package:clean_arch_aula/shared/utils/geolocation/domain/entities/geolocation.dart';
+import 'package:clean_arch_aula/shared/utils/geolocation/geolocation.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
-class GeolocationServiceImpl implements GeolocationService {
-  @override
+class GeolocationService {
   Future<Either<Failure, Geolocation>> getGeolocation() async {
     try {
       LocationPermission permission;

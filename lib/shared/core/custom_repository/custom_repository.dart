@@ -31,12 +31,12 @@ class ProdRepository extends CustomRepository {
   String get repository => "remote";
 }
 
-// class TestRepository extends CustomRepository {
-//   bool _localMode = true;
+class TestRepository extends CustomRepository {
+  bool _localMode = true;
 
-//   void useLocal() => _localMode = true;
-//   void useRemote() => _localMode = false;
+  void useLocal() => _localMode = true;
+  void useRemote() => _localMode = false;
 
-//   @override
-//   String get repository => _localMode ? "local" : "remote";
-// }
+  @override
+  String get repository => _localMode ? "local" : "remote";
+}
