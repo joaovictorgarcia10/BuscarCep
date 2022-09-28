@@ -1,16 +1,17 @@
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 
 class MenuLateralWidget extends StatefulWidget {
   final Widget options;
-  final User user;
+  final String? nome;
+  final String? email;
 
   const MenuLateralWidget({
     Key? key,
     required this.options,
-    required this.user,
+    required this.nome,
+    required this.email,
   }) : super(key: key);
 
   @override
@@ -34,6 +35,8 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
             children: [
               DrawerHeader(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       height: 80,
@@ -47,18 +50,18 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
                       ),
                       child: Center(
                           child: Text(
-                        widget.user.email?.substring(0, 1).toUpperCase() ?? "",
+                        widget.email?.substring(0, 1).toUpperCase() ?? "",
                         style: AppTextStyles.title,
                       )),
                     ),
-                    const SizedBox(width: 20.0),
+                    const SizedBox(height: 10.0),
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(widget.user.displayName ?? ""),
+                        Text(widget.nome ?? ""),
                         const SizedBox(height: 5.0),
-                        Text(widget.user.email ?? ""),
+                        Text(widget.email ?? ""),
                       ],
                     )
                   ],

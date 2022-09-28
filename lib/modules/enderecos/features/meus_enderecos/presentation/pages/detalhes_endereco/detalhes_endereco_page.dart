@@ -132,7 +132,7 @@ class _DetalhesEnderecoPageState extends State<DetalhesEnderecoPage> {
                             Navigator.pop(context);
                             bloc.add(DetalhesEnderecoEvent.deleteEndereco(
                                 params: DeleteEnderecoParams(
-                              id: widget.endereco.documentReference!.id,
+                              id: widget.endereco.documentReference?.id ?? "1",
                             )));
                           },
                         );

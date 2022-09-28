@@ -104,7 +104,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuLateralWidget(
-        user: FirebaseAuth.instance.currentUser!,
+        nome: FirebaseAuth.instance.currentUser?.displayName ?? "Dev Flutter",
+        email: FirebaseAuth.instance.currentUser?.email ??
+            "devflutter@buscarcep.com",
         options: MenuLateralItems(),
       ),
       appBar: AppBar(
