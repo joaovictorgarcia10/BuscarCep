@@ -16,6 +16,8 @@ class InfoCardWidget extends StatelessWidget {
     return Card(
       elevation: 20.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22.0)),
+      color: Colors.black12.withOpacity(0.6),
+      borderOnForeground: true,
       child: SizedBox(
         height: 100,
         width: 150,
