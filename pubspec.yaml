@@ -10,8 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
   
-  flutter_localizations: 
-    sdk: flutter
   firebase_core: ^1.17.0
   firebase_auth: ^3.3.18
   cloud_firestore: ^3.1.16
@@ -19,18 +17,14 @@ dependencies:
   hive_flutter: ^1.1.0
 
   flutter_modular: ^5.0.2
+  modular_bloc_bind: ^1.0.1
   dartz: ^0.10.1
-
   flutter_bloc: ^8.0.1
-  freezed: ^2.1.0+1
-  freezed_annotation: ^2.1.0
-  
   dio: ^4.0.6 
+
   geolocator: ^9.0.1
   url_launcher: ^6.1.2
   mask_text_input_formatter: ^2.3.0
-  mocktail: ^0.3.0
-  modular_bloc_bind: ^1.0.1
   flutter_dotenv: ^5.0.2
 
 
@@ -39,6 +33,11 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.1.7
+  freezed: ^2.1.0+1
+  freezed_annotation: ^2.1.0
+  mocktail: ^0.3.0
+
+
  
 flutter:
   uses-material-design: true

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/do_login.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/login/bloc/login_bloc.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/login/bloc/login_event.dart';
-import 'package:clean_arch_aula/shared/core/i18n/i18n_string_extension.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
@@ -36,9 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         success: (user) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                "login_page_label_7".i18n(params: [user.email ?? ""]),
-              ),
+              content: Text("Seja bem vindo! ${user.email}"),
             ),
           );
 
@@ -90,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   const Icon(Icons.location_on_outlined, size: 52.0),
                   const SizedBox(width: 10.0),
                   Text(
-                    "login_page_label_1".i18n(),
+                    "login_page_label_1",
                     style: AppTextStyles.title,
                   ),
                 ],
@@ -102,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     TextFormFieldWidget(
                       controller: emailTextController,
-                      label: "login_page_label_2".i18n(),
+                      label: "login_page_label_2",
                       prefixIcon: Icons.email_outlined,
                       keyboardType: TextInputType.emailAddress,
                       validator: (text) =>
@@ -110,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextFormFieldWidget(
                       controller: passwordTextController,
-                      label: "login_page_label_3".i18n(),
+                      label: "login_page_label_3",
                       obscureText: obscureTextPassword,
                       keyboardType: TextInputType.text,
                       prefixIcon: Icons.vpn_key_outlined,
@@ -132,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
               Align(
                 alignment: Alignment.centerRight,
                 child: InkWell(
-                  child: Text("login_page_label_4".i18n()),
+                  child: Text("login_page_label_4"),
                   onTap: () {
                     Modular.to.pushNamed("/esqueci_senha");
                   },
@@ -140,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 60.0),
               ButtonWidget(
-                title: "login_page_label_5".i18n(),
+                title: "login_page_label_5",
                 color: AppColors.green,
                 onTap: () async {
                   if (_formKey.currentState!.validate()) {
@@ -157,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20.0),
               ButtonWidget(
-                title: "login_page_label_6".i18n(),
+                title: "login_page_label_6",
                 color: Colors.transparent,
                 borderColor: AppColors.white,
                 onTap: () => Modular.to.pushNamed("/cadastro"),

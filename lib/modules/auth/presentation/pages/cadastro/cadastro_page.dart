@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_bloc.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_event.dart';
-import 'package:clean_arch_aula/shared/core/i18n/i18n_string_extension.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
 import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
@@ -58,8 +57,8 @@ class _CadastroPageState extends State<CadastroPage> {
         },
         success: () {
           Navigator.pop(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text("cadastro_page_label_6".i18n())));
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("cadastro_page_label_6")));
           Navigator.pop(context);
         },
         orElse: () {},
@@ -80,7 +79,7 @@ class _CadastroPageState extends State<CadastroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("cadastro_page_label_1".i18n()),
+        title: Text("cadastro_page_label_1"),
         elevation: 5,
       ),
       body: SafeArea(
@@ -94,7 +93,7 @@ class _CadastroPageState extends State<CadastroPage> {
                   children: [
                     TextFormFieldWidget(
                       controller: emailText,
-                      label: "cadastro_page_label_2".i18n(),
+                      label: "cadastro_page_label_2",
                       prefixIcon: Icons.email_outlined,
                       validator: (text) =>
                           AppFormValidadors().emailValidator(text),
@@ -102,7 +101,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     const SizedBox(height: 10.0),
                     TextFormFieldWidget(
                       controller: passwordText,
-                      label: "cadastro_page_label_3".i18n(),
+                      label: "cadastro_page_label_3",
                       prefixIcon: Icons.vpn_key_outlined,
                       obscureText: obscureTextPassword,
                       suffixIcon: obscureTextPassword
@@ -119,7 +118,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     const SizedBox(height: 10.0),
                     TextFormFieldWidget(
                       controller: confirmPasswordText,
-                      label: "cadastro_page_label_4".i18n(),
+                      label: "cadastro_page_label_4",
                       prefixIcon: Icons.vpn_key_outlined,
                       obscureText: obscureTextConfirmPassword,
                       suffixIcon: obscureTextConfirmPassword
@@ -139,7 +138,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     ),
                     const SizedBox(height: 50.0),
                     ButtonWidget(
-                      title: "cadastro_page_label_5".i18n(),
+                      title: "cadastro_page_label_5",
                       color: AppColors.green,
                       onTap: () {
                         if (_formKey.currentState!.validate()) {

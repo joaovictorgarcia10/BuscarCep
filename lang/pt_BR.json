@@ -1,5 +1,5 @@
 {
-    "validator_generic_label": "Este campo deve ser preenchido",
+    "  Este campo deve ser preenchido": "Este campo deve ser preenchido",
     "validator_cep_label": "Preencha com um CEP válido",
     "validator_email_label": "Preencha com um email válido",
     "validator_password_label": "Sua senha deve ter pelo menos 6 dígitos",
