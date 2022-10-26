@@ -57,8 +57,8 @@ class _CadastroPageState extends State<CadastroPage> {
         },
         success: () {
           Navigator.pop(context);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text("cadastro_page_label_6")));
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("Usuário cadastrado com sucesso!")));
           Navigator.pop(context);
         },
         orElse: () {},
@@ -79,7 +79,7 @@ class _CadastroPageState extends State<CadastroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("cadastro_page_label_1"),
+        title: const Text("Cadastro"),
         elevation: 5,
       ),
       body: SafeArea(
@@ -93,7 +93,7 @@ class _CadastroPageState extends State<CadastroPage> {
                   children: [
                     TextFormFieldWidget(
                       controller: emailText,
-                      label: "cadastro_page_label_2",
+                      label: "Email",
                       prefixIcon: Icons.email_outlined,
                       validator: (text) =>
                           AppFormValidadors().emailValidator(text),
@@ -101,7 +101,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     const SizedBox(height: 10.0),
                     TextFormFieldWidget(
                       controller: passwordText,
-                      label: "cadastro_page_label_3",
+                      label: "Senha",
                       prefixIcon: Icons.vpn_key_outlined,
                       obscureText: obscureTextPassword,
                       suffixIcon: obscureTextPassword
@@ -118,7 +118,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     const SizedBox(height: 10.0),
                     TextFormFieldWidget(
                       controller: confirmPasswordText,
-                      label: "cadastro_page_label_4",
+                      label: "Confirmar Senha",
                       prefixIcon: Icons.vpn_key_outlined,
                       obscureText: obscureTextConfirmPassword,
                       suffixIcon: obscureTextConfirmPassword
@@ -138,7 +138,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     ),
                     const SizedBox(height: 50.0),
                     ButtonWidget(
-                      title: "cadastro_page_label_5",
+                      title: "Cadastrar",
                       color: AppColors.green,
                       onTap: () {
                         if (_formKey.currentState!.validate()) {

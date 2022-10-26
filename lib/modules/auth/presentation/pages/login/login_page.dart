@@ -83,11 +83,11 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SizedBox(height: 60.0),
               Row(
-                children: [
-                  const Icon(Icons.location_on_outlined, size: 52.0),
-                  const SizedBox(width: 10.0),
+                children: const [
+                  Icon(Icons.location_on_outlined, size: 52.0),
+                  SizedBox(width: 10.0),
                   Text(
-                    "login_page_label_1",
+                    "Bem vindo ao\nBuscar CEP",
                     style: AppTextStyles.title,
                   ),
                 ],
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     TextFormFieldWidget(
                       controller: emailTextController,
-                      label: "login_page_label_2",
+                      label: "Email",
                       prefixIcon: Icons.email_outlined,
                       keyboardType: TextInputType.emailAddress,
                       validator: (text) =>
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextFormFieldWidget(
                       controller: passwordTextController,
-                      label: "login_page_label_3",
+                      label: "Senha",
                       obscureText: obscureTextPassword,
                       keyboardType: TextInputType.text,
                       prefixIcon: Icons.vpn_key_outlined,
@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
               Align(
                 alignment: Alignment.centerRight,
                 child: InkWell(
-                  child: Text("login_page_label_4"),
+                  child: const Text("Esqueci minha senha"),
                   onTap: () {
                     Modular.to.pushNamed("/esqueci_senha");
                   },
@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 60.0),
               ButtonWidget(
-                title: "login_page_label_5",
+                title: "Entrar",
                 color: AppColors.green,
                 onTap: () async {
                   if (_formKey.currentState!.validate()) {
@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20.0),
               ButtonWidget(
-                title: "login_page_label_6",
+                title: "Inscrever-se",
                 color: Colors.transparent,
                 borderColor: AppColors.white,
                 onTap: () => Modular.to.pushNamed("/cadastro"),
