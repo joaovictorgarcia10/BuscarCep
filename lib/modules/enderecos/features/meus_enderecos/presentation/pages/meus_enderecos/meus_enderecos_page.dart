@@ -159,6 +159,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
               }
               return const Center(
                 child: MessageCardWidget(
+                  withButton: true,
                   message: "Você não tem nenhum endereço salvo.",
                 ),
               );

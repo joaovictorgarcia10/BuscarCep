@@ -44,8 +44,8 @@ class FirebaseAppWidgetState extends State<FirebaseAppWidget> {
 
   @override
   void dispose() {
-    super.dispose();
     firebaseStatus.dispose();
+    super.dispose();
   }
 
   @override
@@ -58,9 +58,9 @@ class FirebaseAppWidgetState extends State<FirebaseAppWidget> {
             debugShowCheckedModeBanner: false,
             theme: AppTheme().appTheme(),
             home: ErrorCardWidget(
-              message:
-                  "Tivemos uma falha de conexão e já estamos trabalhando para solucionar este problema, por favor, tente novamente mais tarde.",
               onTapButton: () => _initApplication(),
+              message:
+                  "Houve uma falha de conexão, mas já estamos trabalhando para corrigir este problema, por favor, tente novamente mais tarde.",
             ),
           );
         } else if (firebaseStatus.value == FirebaseStatus.success) {
