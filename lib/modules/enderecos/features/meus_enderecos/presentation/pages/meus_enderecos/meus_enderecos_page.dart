@@ -83,7 +83,8 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
-                        expandedHeight: 300.0,
+                        expandedHeight: 250.0,
+                        centerTitle: false,
                         forceElevated: true,
                         pinned: true,
                         floating: true,
@@ -140,6 +141,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                       itemBuilder: (context, index) {
                         Endereco endereco = listaEnderecos[index];
                         return ListTileWidget(
+                          height: 80.0,
                           leadingIcon: Icons.location_on_outlined,
                           title: "${endereco.logradouro}",
                           subtitle:

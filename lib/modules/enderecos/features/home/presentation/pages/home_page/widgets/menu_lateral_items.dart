@@ -17,10 +17,12 @@ class MenuLateralItems extends StatelessWidget {
         ListTileWidget(
           title: "Meus Endereços",
           leadingIcon: Icons.location_on_outlined,
+          trailingIcon: Icons.keyboard_arrow_right_outlined,
           onTap: () => Modular.to.popAndPushNamed("/meus_enderecos"),
         ),
         ListTileWidget(
           title: "Sair",
+          trailingIcon: Icons.keyboard_arrow_right_outlined,
           leadingIcon: Icons.exit_to_app_outlined,
           onTap: () {
             showModalBottomSheet(
