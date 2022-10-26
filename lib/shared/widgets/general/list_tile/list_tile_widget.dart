@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 
 class ListTileWidget extends StatelessWidget {
