@@ -1,12 +1,15 @@
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 
 class MessageCardWidget extends StatelessWidget {
   final String message;
+  final bool withButton;
 
   const MessageCardWidget({
     Key? key,
     required this.message,
+    this.withButton = false,
   }) : super(key: key);
 
   @override
@@ -27,6 +30,12 @@ class MessageCardWidget extends StatelessWidget {
                 style: AppTextStyles.listTileTitle,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 5.0),
+              if (withButton)
+                TextButton(
+                  onPressed: () => Modular.to.pop(),
+                  child: const Text("Voltar"),
+                ),
             ],
           ),
         ),

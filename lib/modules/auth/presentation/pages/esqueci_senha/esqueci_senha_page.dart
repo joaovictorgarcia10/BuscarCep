@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:clean_arch_aula/modules/auth/presentation/pages/esqueci_senha/bloc/esqueci_senha_event.dart';
-import 'package:clean_arch_aula/shared/core/i18n/i18n_string_extension.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
 import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
@@ -34,8 +33,8 @@ class _EsqueciSenhaPageState extends State<EsqueciSenhaPage> {
         success: () {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("esqueci_senha_page_label_5".i18n()),
+            const SnackBar(
+              content: Text("Enviamos uma nova senha para o seu email"),
             ),
           );
           Modular.to.pop();
@@ -68,7 +67,7 @@ class _EsqueciSenhaPageState extends State<EsqueciSenhaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("esqueci_senha_page_label_1".i18n()),
+        title: const Text("Esqueci a Senha"),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -78,21 +77,21 @@ class _EsqueciSenhaPageState extends State<EsqueciSenhaPage> {
               key: _formKey,
               child: Column(
                 children: [
-                  Text(
-                    "esqueci_senha_page_label_2".i18n(),
+                  const Text(
+                    "Informe o seu email cadastrado e nós te enviaremos a sua nova senha.",
                     style: AppTextStyles.title,
                   ),
                   const SizedBox(height: 50.0),
                   TextFormFieldWidget(
                     controller: textController,
-                    label: "esqueci_senha_page_label_3".i18n(),
+                    label: "Email",
                     prefixIcon: Icons.email_outlined,
                     validator: (text) =>
                         AppFormValidadors().emailValidator(text),
                   ),
                   const SizedBox(height: 80.0),
                   ButtonWidget(
-                    title: "esqueci_senha_page_label_4".i18n(),
+                    title: "Enviar nova senha",
                     color: AppColors.green,
                     onTap: () {
                       if (_formKey.currentState!.validate()) {

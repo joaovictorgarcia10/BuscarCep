@@ -83,7 +83,8 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
-                        expandedHeight: 200.0,
+                        expandedHeight: 250.0,
+                        centerTitle: false,
                         forceElevated: true,
                         pinned: true,
                         floating: true,
@@ -100,7 +101,10 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                             child: Align(
                               alignment: Alignment.bottomCenter,
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 5.0,
+                                  vertical: 20.0,
+                                ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -108,7 +112,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                                       title: "Endereços",
                                       value: listaEnderecos.length.toString(),
                                     ),
-                                    const SizedBox(width: 20.0),
+                                    const SizedBox(width: 30.0),
                                     InfoCardWidget(
                                       title: "Cidades",
                                       value: listaCidades
@@ -137,6 +141,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                       itemBuilder: (context, index) {
                         Endereco endereco = listaEnderecos[index];
                         return ListTileWidget(
+                          height: 80.0,
                           leadingIcon: Icons.location_on_outlined,
                           title: "${endereco.logradouro}",
                           subtitle:
@@ -154,6 +159,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
               }
               return const Center(
                 child: MessageCardWidget(
+                  withButton: true,
                   message: "Você não tem nenhum endereço salvo.",
                 ),
               );

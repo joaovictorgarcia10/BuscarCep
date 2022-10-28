@@ -1,10 +1,8 @@
-import 'package:clean_arch_aula/shared/core/i18n/i18n_string_extension.dart';
-
 class AppFormValidadors {
   // Generic
   String? genericValidator(String? text) {
     if (text == null || text.isEmpty) {
-      return "validator_generic_label".i18n();
+      return "Este campo deve ser preenchido";
     }
     return null;
   }
@@ -12,10 +10,10 @@ class AppFormValidadors {
   // CEP
   String? cepValidator(String? text) {
     if (text == null || text.isEmpty) {
-      return "validator_generic_label".i18n();
+      return "Preencha com um email válido";
     }
     if (text.length != 9) {
-      return "validator_cep_label".i18n();
+      return "Preencha com um CEP válido";
     }
     return null;
   }
@@ -23,10 +21,10 @@ class AppFormValidadors {
   //Email
   String? emailValidator(String? text) {
     if (text == null || text.isEmpty) {
-      return "validator_generic_label".i18n();
+      return "Este campo deve ser preenchido";
     }
     if (!text.contains("@")) {
-      return "validator_email_label".i18n();
+      return "Preencha com um email válido";
     }
     return null;
   }
@@ -34,10 +32,10 @@ class AppFormValidadors {
   // Password
   String? passwordValidator(String? text) {
     if (text == null || text.isEmpty) {
-      return "validator_generic_label".i18n();
+      return "Este campo deve ser preenchido";
     }
     if (text.length < 6) {
-      return "validator_password_label".i18n();
+      return "Sua senha deve ter pelo menos 6 dígitos";
     }
     return null;
   }
@@ -46,13 +44,13 @@ class AppFormValidadors {
   String? confirmPasswordValidator(
       {String? confirmPassword, required String password}) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
-      return "validator_generic_label".i18n();
+      return " Este campo deve ser preenchido";
     }
     if (confirmPassword.length < 6) {
-      return "validator_password_label".i18n();
+      return "Sua senha deve ter pelo menos 6 dígitos";
     }
     if (confirmPassword != password) {
-      return "validator_confirm_password_label".i18n();
+      return "As senhas estão diferentes";
     }
     return null;
   }
