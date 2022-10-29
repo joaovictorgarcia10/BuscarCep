@@ -14,11 +14,8 @@ class CustomEnv {
   static Future<void> loadEnv(String fileName) async {
     try {
       final response = await rootBundle.loadString(fileName);
-
       final parse = const Parser().parse(response.split("\n"));
-
       map["ENV"] = parse["ENV"] ?? parse['env'];
-      map["THEME"] = parse["THEME"] ?? parse['theme'];
     } catch (e) {
       rethrow;
     }
