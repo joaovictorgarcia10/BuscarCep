@@ -1,8 +1,8 @@
-import 'package:clean_arch_aula/modules/auth/domain/usecases/reset_password.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/reset_password.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:clean_arch_aula/modules/auth/presentation/pages/esqueci_senha/bloc/esqueci_senha_event.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/esqueci_senha/bloc/esqueci_senha_state.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/esqueci_senha/bloc/esqueci_senha_event.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/esqueci_senha/bloc/esqueci_senha_state.dart';
 
 class EsqueciSenhaBloc extends Bloc<EsqueciSenhaEvent, EsqueciSenhaState> {
   final ResetPassword _resetPassword;

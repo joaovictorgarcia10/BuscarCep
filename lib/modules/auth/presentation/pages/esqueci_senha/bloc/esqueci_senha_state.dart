@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'esqueci_senha_state.freezed.dart';

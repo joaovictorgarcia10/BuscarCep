@@ -1,13 +1,13 @@
-import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
-import 'package:clean_arch_aula/shared/utils/masks/app_masks.dart';
-import 'package:clean_arch_aula/shared/utils/url_launch/launch_browser.dart';
-import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
-import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/error_modal/error_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/message_modal/message_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/general/text_form_field/text_form_field_widget.dart';
+import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
+import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
+import 'package:buscar_cep/shared/utils/constants/app_text_styles.dart';
+import 'package:buscar_cep/shared/utils/masks/app_masks.dart';
+import 'package:buscar_cep/shared/utils/url_launch/launch_browser.dart';
+import 'package:buscar_cep/shared/utils/validators/app_form_validadors.dart';
+import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/error_modal/error_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/message_modal/message_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/general/text_form_field/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
 class InformarNumeracaoPage extends StatefulWidget {
@@ -89,6 +89,7 @@ class _InformarNumeracaoPageState extends State<InformarNumeracaoPage> {
                                     await LaunchBrowser()
                                         .openBrowser(url: Uri.parse(url));
                                   } else {
+                                    // ignore: use_build_context_synchronously
                                     showModalBottomSheet(
                                       context: context,
                                       builder: (context) {
@@ -132,6 +133,7 @@ class _InformarNumeracaoPageState extends State<InformarNumeracaoPage> {
                                   await LaunchBrowser()
                                       .openBrowser(url: Uri.parse(url));
                                 } else {
+                                  // ignore: use_build_context_synchronously
                                   showModalBottomSheet(
                                     context: context,
                                     builder: (context) {

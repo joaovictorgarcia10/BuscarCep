@@ -1,40 +1,39 @@
-name: clean_arch_aula
+name: buscar_cep
 description: A new Flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: '>=2.19.2 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   
-  firebase_core: ^1.17.0
-  firebase_auth: ^3.3.18
-  cloud_firestore: ^3.1.16
-  firebase_remote_config: ^2.0.12
-  hive_flutter: ^1.1.0
+  firebase_core: ^2.9.0
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.5.0
+  firebase_remote_config: ^4.0.0 
 
-  flutter_modular: ^5.0.2
+  flutter_modular: ^5.0.3
   modular_bloc_bind: ^1.0.1
   dartz: ^0.10.1
-  flutter_bloc: ^8.0.1
-  dio: ^4.0.6 
+  flutter_bloc: ^8.1.2
+  dio: ^5.1.1
 
-  freezed: ^2.1.0+1
-  freezed_annotation: ^2.1.0
-  geolocator: ^9.0.1
-  url_launcher: ^6.1.2
-  mask_text_input_formatter: ^2.3.0
+  freezed: ^2.3.2
+  freezed_annotation: ^2.2.0 
+  geolocator: ^9.0.2
+  url_launcher: ^6.1.10
+  mask_text_input_formatter: ^2.4.0
   flutter_dotenv: ^5.0.2
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  build_runner: ^2.1.7
+  flutter_lints: ^2.0.1
+  build_runner: ^2.3.3
   mocktail: ^0.3.0
 
 

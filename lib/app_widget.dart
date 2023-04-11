@@ -1,5 +1,5 @@
-import 'package:clean_arch_aula/shared/core/custom_env/custom_env.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_theme.dart';
+import 'package:buscar_cep/shared/core/custom_env/custom_env.dart';
+import 'package:buscar_cep/shared/utils/constants/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

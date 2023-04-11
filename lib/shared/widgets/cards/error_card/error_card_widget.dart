@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
-import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
+import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
+import 'package:buscar_cep/shared/utils/constants/app_text_styles.dart';
+import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
 import 'package:flutter/material.dart';
 
 class ErrorCardWidget extends StatelessWidget {

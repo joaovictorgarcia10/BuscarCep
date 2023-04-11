@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
+import 'package:buscar_cep/shared/utils/constants/app_text_styles.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;

@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:clean_arch_aula/modules/auth/data/datasources/auth_datasource_remote.dart';
-import 'package:clean_arch_aula/modules/auth/data/datasources/auth_datasource_local.dart';
-import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
-import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/auth/data/datasources/auth_datasource_remote.dart';
+import 'package:buscar_cep/modules/auth/data/datasources/auth_datasource_local.dart';
+import 'package:buscar_cep/modules/auth/domain/entities/user.dart';
+import 'package:buscar_cep/modules/auth/domain/repositories/auth_repository.dart';
+import 'package:buscar_cep/shared/core/custom_repository/custom_repository.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthDatasourceRemote datasourceRemote;

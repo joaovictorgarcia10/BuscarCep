@@ -1,14 +1,14 @@
 import 'dart:async';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/usecases/delete_endereco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_bloc.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_event.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/cards/endereco_card/endereco_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/error_modal/error_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/message_modal/message_modal_widget.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/usecases/delete_endereco.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_bloc.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_event.dart';
+import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
+import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
+import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
+import 'package:buscar_cep/shared/widgets/cards/endereco_card/endereco_card_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/error_modal/error_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/message_modal/message_modal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -130,10 +130,14 @@ class _DetalhesEnderecoPageState extends State<DetalhesEnderecoPage> {
                           message: "Quer mesmo apagar este endereço?",
                           onConfirm: () {
                             Navigator.pop(context);
-                            bloc.add(DetalhesEnderecoEvent.deleteEndereco(
+                            bloc.add(
+                              DetalhesEnderecoEvent.deleteEndereco(
                                 params: DeleteEnderecoParams(
-                              id: widget.endereco.documentReference?.id ?? "1",
-                            )));
+                                  id: widget.endereco.documentReference?.id ??
+                                      "1",
+                                ),
+                              ),
+                            );
                           },
                         );
                       },

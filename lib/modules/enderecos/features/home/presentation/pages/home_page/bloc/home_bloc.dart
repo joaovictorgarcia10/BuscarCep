@@ -1,8 +1,8 @@
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/disconnect_account.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/save_endereco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/disconnect_account.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/save_endereco.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {

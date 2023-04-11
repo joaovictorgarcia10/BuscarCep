@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/auth/domain/usecases/do_login.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/login/bloc/login_event.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/login/bloc/login_state.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/do_login.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/login/bloc/login_event.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/login/bloc/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginBloc extends Bloc<DoLoginEvent, DoLoginState> {

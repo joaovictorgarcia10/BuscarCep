@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/usecases/delete_endereco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/usecases/get_geolocation.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/usecases/delete_endereco.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/usecases/get_geolocation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'detalhes_endereco_event.dart';

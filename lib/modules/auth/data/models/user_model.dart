@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
+import 'package:buscar_cep/modules/auth/domain/entities/user.dart';
 
 class UserModel extends User {
   UserModel({

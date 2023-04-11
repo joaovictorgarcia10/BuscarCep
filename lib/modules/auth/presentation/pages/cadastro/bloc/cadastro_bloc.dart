@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_event.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/create_account.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_event.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CadastroBloc extends Bloc<CadastroEvent, CadastroState> {

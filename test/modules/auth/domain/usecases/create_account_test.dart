@@ -1,7 +1,7 @@
-import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/auth/domain/repositories/auth_repository.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/create_account.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

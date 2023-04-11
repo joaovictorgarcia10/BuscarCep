@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
+import 'package:buscar_cep/shared/utils/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class InfoCardWidget extends StatelessWidget {

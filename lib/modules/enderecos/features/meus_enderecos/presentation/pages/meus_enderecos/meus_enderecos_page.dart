@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_event.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/error_modal/error_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/cards/info_card/info_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/general/list_tile/list_tile_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/cards/message_card/message_card_widget.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_event.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
+import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
+import 'package:buscar_cep/shared/widgets/modals/error_modal/error_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/cards/info_card/info_card_widget.dart';
+import 'package:buscar_cep/shared/widgets/general/list_tile/list_tile_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/cards/message_card/message_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -28,39 +28,41 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
     super.initState();
     bloc.add(const MeusEnderecosEvent.getListaEnderecos());
 
-    subscription = bloc.stream.listen((state) {
-      state.maybeWhen(
-        loading: () => showModalBottomSheet(
-          context: context,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(25.0),
-            ),
-          ),
-          isDismissible: false,
-          isScrollControlled: false,
-          enableDrag: false,
-          builder: (context) => const LoadingModalWidget(),
-        ),
-        failure: (failure) {
-          Navigator.pop(context);
-          showModalBottomSheet(
+    subscription = bloc.stream.listen(
+      (state) {
+        state.maybeWhen(
+          loading: () => showModalBottomSheet(
             context: context,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(22.0),
-                topRight: Radius.circular(22.0),
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(25.0),
               ),
             ),
-            builder: (context) => ErrorModalWidget(message: failure.message),
-          );
-        },
-        getListaEnderecosSuccess: (listaEnderecos) {
-          Navigator.pop(context);
-        },
-        orElse: () {},
-      );
-    });
+            isDismissible: false,
+            isScrollControlled: false,
+            enableDrag: false,
+            builder: (context) => const LoadingModalWidget(),
+          ),
+          failure: (failure) {
+            Navigator.pop(context);
+            showModalBottomSheet(
+              context: context,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(22.0),
+                  topRight: Radius.circular(22.0),
+                ),
+              ),
+              builder: (context) => ErrorModalWidget(message: failure.message),
+            );
+          },
+          getListaEnderecosSuccess: (listaEnderecos) {
+            Navigator.pop(context);
+          },
+          orElse: () {},
+        );
+      },
+    );
   }
 
   @override

@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/usecases/get_lista_enderecos.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_event.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/usecases/get_lista_enderecos.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_event.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeusEnderecosBloc extends Bloc<MeusEnderecosEvent, MeusEnderecosState> {

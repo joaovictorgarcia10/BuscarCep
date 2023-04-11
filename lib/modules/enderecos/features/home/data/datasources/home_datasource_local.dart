@@ -1,8 +1,8 @@
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/data/datasources/home_datasource.dart';
 import 'package:dartz/dartz.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
+import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
 
 class HomeDatasourceLocal implements HomeDatasource {
   @override

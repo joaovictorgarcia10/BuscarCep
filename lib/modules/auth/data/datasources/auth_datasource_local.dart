@@ -1,7 +1,7 @@
-import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
-import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
+import 'package:buscar_cep/modules/auth/domain/entities/user.dart';
+import 'package:buscar_cep/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 
 class AuthDatasourceLocal extends AuthRepository {
   @override
@@ -22,7 +22,7 @@ class AuthDatasourceLocal extends AuthRepository {
         email: "devflutter@buscarcep.com",
         nome: "Dev Flutter",
         photoUrl: "",
-        userId: "12345",
+        userId: "123456",
       );
 
       if (email == "devflutter@buscarcep.com" && password == "123456") {

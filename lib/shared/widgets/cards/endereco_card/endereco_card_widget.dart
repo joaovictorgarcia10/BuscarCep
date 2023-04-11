@@ -1,5 +1,5 @@
-import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
+import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
+import 'package:buscar_cep/shared/utils/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class EnderecoCardWidget extends StatelessWidget {

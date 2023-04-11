@@ -1,13 +1,13 @@
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_local.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_remote.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/repositories/home_repository_impl.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/disconnect_account.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/save_endereco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:clean_arch_aula/shared/core/custom_dio/custom_dio.dart';
-import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/data/datasources/home_datasource_local.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/data/datasources/home_datasource_remote.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/data/repositories/home_repository_impl.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/disconnect_account.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/save_endereco.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:buscar_cep/shared/core/custom_repository/custom_repository.dart';
+import 'package:buscar_cep/shared/core/http/dio_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -19,7 +19,7 @@ class HomeModule extends Module {
     // Datasources
     Bind(
       (i) => HomeDatasourceRemote(
-        dio: CustomDio(),
+        httpService: DioService(),
         firebaseFirestore: FirebaseFirestore.instance,
         firebaseAuth: FirebaseAuth.instance,
       ),

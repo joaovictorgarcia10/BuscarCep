@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/modules/auth/data/models/user_model.dart';
+import 'package:buscar_cep/modules/auth/data/models/user_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

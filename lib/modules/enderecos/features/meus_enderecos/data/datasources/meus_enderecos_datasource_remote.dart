@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
 import 'meus_enderecos_datasource.dart';
 
 class MeusEnderecosDatasourceRemote implements MeusEnderecosDatasource {

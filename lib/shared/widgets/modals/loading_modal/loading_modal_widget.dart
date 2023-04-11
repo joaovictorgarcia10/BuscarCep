@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
+import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LoadingModalWidget extends StatelessWidget {

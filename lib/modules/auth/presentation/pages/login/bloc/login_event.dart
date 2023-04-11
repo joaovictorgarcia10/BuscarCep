@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/modules/auth/domain/usecases/do_login.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/do_login.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_event.freezed.dart';

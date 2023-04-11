@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_local.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/data/datasources/home_datasource_remote.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/repositories/home_repository.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
-import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/data/datasources/home_datasource_local.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/data/datasources/home_datasource_remote.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/repositories/home_repository.dart';
+import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
+import 'package:buscar_cep/shared/core/custom_repository/custom_repository.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
   final HomeDatasourceRemote datasourceRemote;

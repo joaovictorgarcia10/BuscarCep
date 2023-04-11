@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_bloc.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_event.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
-import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/general/text_form_field/text_form_field_widget.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/create_account.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_bloc.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_event.dart';
+import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
+import 'package:buscar_cep/shared/utils/validators/app_form_validadors.dart';
+import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/general/text_form_field/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

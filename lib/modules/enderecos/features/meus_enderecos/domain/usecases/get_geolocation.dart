@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
-import 'package:clean_arch_aula/shared/core/custom_usecase/custom_usecase.dart';
-import 'package:clean_arch_aula/shared/utils/geolocation/geolocation_service.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_state.dart';
+import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
+import 'package:buscar_cep/shared/utils/geolocation/geolocation_service.dart';
 
 class GetGeolocation implements StreamUseCase<DetalhesEnderecoState, NoParams> {
   final GeolocationService _geolocationService;

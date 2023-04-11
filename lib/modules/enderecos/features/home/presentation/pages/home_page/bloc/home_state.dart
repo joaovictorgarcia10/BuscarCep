@@ -1,5 +1,5 @@
-import 'package:clean_arch_aula/modules/enderecos/shared/entities/endereco.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_state.freezed.dart';

@@ -1,7 +1,7 @@
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/data/datasources/meus_enderecos_datasource.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/data/datasources/meus_enderecos_datasource.dart';
 import 'package:dartz/dartz.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
 
 class MeusEnderecosDatasourceLocal implements MeusEnderecosDatasource {
   @override

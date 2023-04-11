@@ -1,21 +1,21 @@
 import 'dart:async';
-import 'package:clean_arch_aula/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/home/presentation/pages/home_page/widgets/menu_lateral_items.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_colors.dart';
-import 'package:clean_arch_aula/shared/widgets/general/menu_lateral/menu_lateral_widget.dart';
-import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
-import 'package:clean_arch_aula/shared/utils/masks/app_masks.dart';
-import 'package:clean_arch_aula/shared/utils/validators/app_form_validadors.dart';
-import 'package:clean_arch_aula/shared/widgets/general/button/button_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/cards/endereco_card/endereco_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/cards/message_card/message_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/error_modal/error_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/modals/message_modal/message_modal_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/general/text_form_field/text_form_field_widget.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/buscar_endreco.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_event.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
+import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/widgets/menu_lateral_items.dart';
+import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
+import 'package:buscar_cep/shared/widgets/general/menu_lateral/menu_lateral_widget.dart';
+import 'package:buscar_cep/shared/utils/constants/app_text_styles.dart';
+import 'package:buscar_cep/shared/utils/masks/app_masks.dart';
+import 'package:buscar_cep/shared/utils/validators/app_form_validadors.dart';
+import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
+import 'package:buscar_cep/shared/widgets/cards/endereco_card/endereco_card_widget.dart';
+import 'package:buscar_cep/shared/widgets/cards/message_card/message_card_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/error_modal/error_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/modals/message_modal/message_modal_widget.dart';
+import 'package:buscar_cep/shared/widgets/general/text_form_field/text_form_field_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
   final formKey = GlobalKey<FormState>();
   final bloc = Modular.get<HomeBloc>();
   late StreamSubscription _subscription;
-
   bool initialAnimationOn = false;
 
   initialAnimation() async {
@@ -175,9 +174,7 @@ class _HomePageState extends State<HomePage> {
                                 AnimatedContainer(
                                   height: initialAnimationOn ? 150 : 50,
                                   duration: const Duration(milliseconds: 800),
-                                  child: Image.asset(
-                                    "assets/images/img1.png",
-                                  ),
+                                  child: Image.asset("assets/images/img1.png"),
                                 ),
                                 const SizedBox(height: 20.0),
                                 const Text(

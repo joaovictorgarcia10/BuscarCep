@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
-import 'package:clean_arch_aula/shared/core/custom_usecase/custom_usecase.dart';
+import 'package:buscar_cep/modules/auth/domain/repositories/auth_repository.dart';
+import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
+import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
 class CreateAccount extends StreamUseCase<CadastroState, CreateAccountParams> {
   final AuthRepository repository;

@@ -1,4 +1,4 @@
-import 'package:clean_arch_aula/modules/auth/domain/usecases/create_account.dart';
+import 'package:buscar_cep/modules/auth/domain/usecases/create_account.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'cadastro_event.freezed.dart';
 

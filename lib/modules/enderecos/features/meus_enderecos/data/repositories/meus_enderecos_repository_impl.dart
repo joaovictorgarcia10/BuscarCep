@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/data/datasources/meus_enderecos_datasource_local.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/data/datasources/meus_enderecos_datasource_remote.dart';
-import 'package:clean_arch_aula/modules/enderecos/features/meus_enderecos/domain/repositories/meus_enderecos_repository.dart';
-import 'package:clean_arch_aula/modules/enderecos/shared/models/endereco_model.dart';
-import 'package:clean_arch_aula/shared/core/custom_repository/custom_repository.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/data/datasources/meus_enderecos_datasource_local.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/data/datasources/meus_enderecos_datasource_remote.dart';
+import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/repositories/meus_enderecos_repository.dart';
+import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
+import 'package:buscar_cep/shared/core/custom_repository/custom_repository.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 
 class MeusEnderecosRepositoryImpl implements MeusEnderecosRepository {
   final MeusEnderecosDatasourceLocal datasourceLocal;

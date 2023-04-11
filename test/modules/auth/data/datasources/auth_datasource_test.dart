@@ -1,6 +1,6 @@
-import 'package:clean_arch_aula/modules/auth/data/datasources/auth_datasource.dart';
-import 'package:clean_arch_aula/modules/auth/data/models/user_model.dart';
-import 'package:clean_arch_aula/shared/core/error/failure.dart';
+import 'package:buscar_cep/modules/auth/data/datasources/auth_datasource.dart';
+import 'package:buscar_cep/modules/auth/data/models/user_model.dart';
+import 'package:buscar_cep/shared/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
