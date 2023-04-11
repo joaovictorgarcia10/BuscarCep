@@ -142,17 +142,26 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                       itemCount: listaEnderecos.length,
                       itemBuilder: (context, index) {
                         Endereco endereco = listaEnderecos[index];
-                        return ListTileWidget(
-                          height: 80.0,
-                          leadingIcon: Icons.location_on_outlined,
-                          title: "${endereco.logradouro}",
-                          subtitle:
-                              "${endereco.bairro},  ${endereco.localidade} - ${endereco.ddd}",
-                          trailingIcon: Icons.keyboard_arrow_right_outlined,
-                          onTapTrailing: () {
-                            Modular.to
-                                .pushNamed("./detalhes", arguments: endereco);
-                          },
+
+                        return Hero(
+                          tag: "endereco_card_tag_$index",
+                          child: ListTileWidget(
+                            height: 80.0,
+                            leadingIcon: Icons.location_on_outlined,
+                            title: "${endereco.logradouro}",
+                            subtitle:
+                                "${endereco.bairro},  ${endereco.localidade} - ${endereco.ddd}",
+                            trailingIcon: Icons.keyboard_arrow_right_outlined,
+                            onTapTrailing: () {
+                              Modular.to.pushNamed(
+                                "./detalhes",
+                                arguments: {
+                                  "endereco": endereco,
+                                  "heroTag": "endereco_card_tag_$index",
+                                },
+                              );
+                            },
+                          ),
                         );
                       },
                     ),

@@ -1,23 +1,27 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
 import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/usecases/delete_endereco.dart';
 import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_bloc.dart';
 import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/detalhes_endereco/bloc/detalhes_endereco_event.dart';
 import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
 import 'package:buscar_cep/shared/utils/constants/app_colors.dart';
-import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
 import 'package:buscar_cep/shared/widgets/cards/endereco_card/endereco_card_widget.dart';
+import 'package:buscar_cep/shared/widgets/general/button/button_widget.dart';
 import 'package:buscar_cep/shared/widgets/modals/error_modal/error_modal_widget.dart';
 import 'package:buscar_cep/shared/widgets/modals/loading_modal/loading_modal_widget.dart';
 import 'package:buscar_cep/shared/widgets/modals/message_modal/message_modal_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class DetalhesEnderecoPage extends StatefulWidget {
   final EnderecoModel endereco;
+  final String heroTag;
 
   const DetalhesEnderecoPage({
     Key? key,
     required this.endereco,
+    required this.heroTag,
   }) : super(key: key);
 
   @override
@@ -102,7 +106,10 @@ class _DetalhesEnderecoPageState extends State<DetalhesEnderecoPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                EnderecoCardWidget(endereco: widget.endereco),
+                Hero(
+                  tag: widget.heroTag,
+                  child: EnderecoCardWidget(endereco: widget.endereco),
+                ),
                 const SizedBox(height: 50.0),
                 ButtonWidget(
                   title: "Ver no Mapa",

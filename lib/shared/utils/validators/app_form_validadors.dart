@@ -10,7 +10,7 @@ class AppFormValidadors {
   // CEP
   String? cepValidator(String? text) {
     if (text == null || text.isEmpty) {
-      return "Preencha com um email válido";
+      return "Preencha com um CEP válido";
     }
     if (text.length != 9) {
       return "Preencha com um CEP válido";

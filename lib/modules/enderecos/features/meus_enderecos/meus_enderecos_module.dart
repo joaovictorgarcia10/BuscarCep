@@ -55,7 +55,10 @@ class MeusEnderecosModule extends Module {
     ChildRoute("/", child: (context, args) => const MeusEnderecosPage()),
     ChildRoute(
       "/detalhes",
-      child: (context, args) => DetalhesEnderecoPage(endereco: args.data),
+      child: (context, args) => DetalhesEnderecoPage(
+        endereco: args.data["endereco"],
+        heroTag: args.data["heroTag"],
+      ),
       transition: TransitionType.fadeIn,
       duration: const Duration(milliseconds: 800),
     ),
