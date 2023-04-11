@@ -53,7 +53,7 @@ class AuthModule extends Module {
       "/login",
       child: (context, args) => const LoginPage(),
       transition: TransitionType.size,
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1600),
     ),
     ChildRoute(
       "/cadastro",

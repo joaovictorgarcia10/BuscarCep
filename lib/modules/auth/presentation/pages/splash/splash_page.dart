@@ -10,9 +10,9 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
+  Future<void> navigate() async {
+    await Future.delayed(const Duration(seconds: 2));
+
     FirebaseAuth.instance.authStateChanges().listen(
       (user) {
         if (user == null) {
@@ -22,6 +22,12 @@ class _SplashPageState extends State<SplashPage> {
         }
       },
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    navigate();
   }
 
   @override
