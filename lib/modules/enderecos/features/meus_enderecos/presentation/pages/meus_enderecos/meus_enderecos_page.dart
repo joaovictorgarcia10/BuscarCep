@@ -85,7 +85,7 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
-                        expandedHeight: 250.0,
+                        expandedHeight: 220.0,
                         centerTitle: false,
                         forceElevated: true,
                         pinned: true,
