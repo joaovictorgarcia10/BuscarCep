@@ -2,7 +2,7 @@ import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/domain/repo
 import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
-class GetListaEnderecos implements StreamUseCase<MeusEnderecosState, NoParams> {
+class GetListaEnderecos implements CustomUsecase<MeusEnderecosState, NoParams> {
   final MeusEnderecosRepository _meusEnderecosRepository;
   GetListaEnderecos(this._meusEnderecosRepository);
 

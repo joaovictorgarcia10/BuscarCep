@@ -1,5 +1,5 @@
-import 'package:buscar_cep/shared/core/http/http_service.dart';
 import 'package:dio/dio.dart';
+import 'http_service.dart';
 
 class DioService implements HttpService {
   final _dio = Dio(
@@ -14,35 +14,30 @@ class DioService implements HttpService {
     ),
   );
 
+  DioService() {
+    _dio.interceptors.add(LogInterceptor());
+  }
+
   @override
   Future<dynamic> get(String path,
       {Map<String, dynamic>? queryParameters}) async {
-    _dio.interceptors.add(LogInterceptor());
-
     var response = await _dio.get(path, queryParameters: queryParameters);
-
     return response;
   }
 
   @override
   Future<dynamic> post(String path,
       {data, Map<String, dynamic>? queryParameters}) async {
-    _dio.interceptors.add(LogInterceptor());
-
     var response =
         await _dio.post(path, data: data, queryParameters: queryParameters);
-
     return response;
   }
 
   @override
   Future<dynamic> put(String path,
       {data, Map<String, dynamic>? queryParameters}) async {
-    _dio.interceptors.add(LogInterceptor());
-
     var response =
         await _dio.put(path, data: data, queryParameters: queryParameters);
-
     return response;
   }
 }

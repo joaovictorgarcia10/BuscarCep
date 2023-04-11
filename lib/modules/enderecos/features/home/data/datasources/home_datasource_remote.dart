@@ -1,7 +1,7 @@
 import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
 import 'package:buscar_cep/modules/enderecos/shared/models/endereco_model.dart';
 import 'package:buscar_cep/shared/core/error/failure.dart';
-import 'package:buscar_cep/shared/core/http/http_service.dart';
+import 'package:buscar_cep/shared/core/services/http/http_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';

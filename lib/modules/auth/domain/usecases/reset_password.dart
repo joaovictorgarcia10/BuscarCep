@@ -3,7 +3,7 @@ import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
 import '../../presentation/pages/esqueci_senha/bloc/esqueci_senha_state.dart';
 
-class ResetPassword extends StreamUseCase<EsqueciSenhaState, String> {
+class ResetPassword extends CustomUsecase<EsqueciSenhaState, String> {
   final AuthRepository repository;
   ResetPassword({required this.repository});
 

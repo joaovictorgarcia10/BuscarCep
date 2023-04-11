@@ -30,13 +30,3 @@ class ProdRepository extends CustomRepository {
   @override
   String get repository => "remote";
 }
-
-class TestRepository extends CustomRepository {
-  bool _localMode = true;
-
-  void useLocal() => _localMode = true;
-  void useRemote() => _localMode = false;
-
-  @override
-  String get repository => _localMode ? "local" : "remote";
-}

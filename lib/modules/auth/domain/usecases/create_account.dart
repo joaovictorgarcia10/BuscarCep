@@ -2,7 +2,7 @@ import 'package:buscar_cep/modules/auth/domain/repositories/auth_repository.dart
 import 'package:buscar_cep/modules/auth/presentation/pages/cadastro/bloc/cadastro_state.dart';
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
-class CreateAccount extends StreamUseCase<CadastroState, CreateAccountParams> {
+class CreateAccount extends CustomUsecase<CadastroState, CreateAccountParams> {
   final AuthRepository repository;
   CreateAccount({required this.repository});
 

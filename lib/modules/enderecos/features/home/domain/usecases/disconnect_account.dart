@@ -2,7 +2,7 @@ import 'package:buscar_cep/modules/enderecos/features/home/domain/repositories/h
 import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_state.dart';
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
-class DisconnectAccount implements StreamUseCase<HomeState, NoParams> {
+class DisconnectAccount implements CustomUsecase<HomeState, NoParams> {
   final HomeRepository _repository;
   DisconnectAccount(this._repository);
 

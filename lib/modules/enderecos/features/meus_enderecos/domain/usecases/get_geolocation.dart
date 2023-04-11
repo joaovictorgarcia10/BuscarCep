@@ -2,7 +2,7 @@ import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentatio
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 import 'package:buscar_cep/shared/utils/geolocation/geolocation_service.dart';
 
-class GetGeolocation implements StreamUseCase<DetalhesEnderecoState, NoParams> {
+class GetGeolocation implements CustomUsecase<DetalhesEnderecoState, NoParams> {
   final GeolocationService _geolocationService;
   GetGeolocation(this._geolocationService);
 

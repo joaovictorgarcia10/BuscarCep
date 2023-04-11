@@ -1,4 +1,4 @@
-abstract class StreamUseCase<Type, Params> {
+abstract class CustomUsecase<Type, Params> {
   Stream<Type> call(Params params);
 }
 

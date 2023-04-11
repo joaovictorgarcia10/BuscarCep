@@ -3,7 +3,7 @@ import 'package:buscar_cep/modules/enderecos/features/meus_enderecos/presentatio
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
 class DeleteEndereco
-    implements StreamUseCase<DetalhesEnderecoState, DeleteEnderecoParams> {
+    implements CustomUsecase<DetalhesEnderecoState, DeleteEnderecoParams> {
   final MeusEnderecosRepository _repository;
   DeleteEndereco(this._repository);
 

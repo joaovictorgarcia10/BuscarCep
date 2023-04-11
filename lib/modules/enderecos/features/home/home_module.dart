@@ -7,7 +7,7 @@ import 'package:buscar_cep/modules/enderecos/features/home/domain/usecases/save_
 import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/bloc/home_bloc.dart';
 import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:buscar_cep/shared/core/custom_repository/custom_repository.dart';
-import 'package:buscar_cep/shared/core/http/dio_service.dart';
+import 'package:buscar_cep/shared/core/services/http/dio_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';

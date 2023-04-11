@@ -2,7 +2,7 @@ import 'package:buscar_cep/modules/auth/domain/repositories/auth_repository.dart
 import 'package:buscar_cep/modules/auth/presentation/pages/login/bloc/login_state.dart';
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
-class DoLogin extends StreamUseCase<DoLoginState, DoLoginParams> {
+class DoLogin extends CustomUsecase<DoLoginState, DoLoginParams> {
   final AuthRepository repository;
   DoLogin({required this.repository});
 

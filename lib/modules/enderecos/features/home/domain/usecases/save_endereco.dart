@@ -3,7 +3,7 @@ import 'package:buscar_cep/modules/enderecos/features/home/presentation/pages/ho
 import 'package:buscar_cep/modules/enderecos/shared/entities/endereco.dart';
 import 'package:buscar_cep/shared/core/custom_usecase/custom_usecase.dart';
 
-class SaveEndereco implements StreamUseCase<HomeState, Endereco> {
+class SaveEndereco implements CustomUsecase<HomeState, Endereco> {
   final HomeRepository _repository;
   SaveEndereco(this._repository);
 
