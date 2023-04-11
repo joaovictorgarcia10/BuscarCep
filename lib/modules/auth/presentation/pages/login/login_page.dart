@@ -84,7 +84,13 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 60.0),
               Row(
                 children: const [
-                  Icon(Icons.location_on_outlined, size: 52.0),
+                  Hero(
+                    tag: "location_icon_tag",
+                    child: Icon(
+                      Icons.location_on_outlined,
+                      size: 52.0,
+                    ),
+                  ),
                   SizedBox(width: 10.0),
                   Text(
                     "Bem vindo ao\nBuscar CEP",

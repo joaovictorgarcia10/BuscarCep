@@ -28,9 +28,12 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Icon(
-          Icons.location_on_outlined,
-          size: 100.0,
+        child: Hero(
+          tag: "location_icon_tag",
+          child: Icon(
+            Icons.location_on_outlined,
+            size: 100.0,
+          ),
         ),
       ),
     );

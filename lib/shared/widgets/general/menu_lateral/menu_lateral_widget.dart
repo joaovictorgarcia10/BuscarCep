@@ -54,16 +54,8 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
                         style: AppTextStyles.title,
                       )),
                     ),
-                    const SizedBox(height: 10.0),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(widget.nome ?? ""),
-                        const SizedBox(height: 5.0),
-                        Text(widget.email ?? ""),
-                      ],
-                    )
+                    const SizedBox(height: 15.0),
+                    Text(widget.email ?? "")
                   ],
                 ),
               ),
