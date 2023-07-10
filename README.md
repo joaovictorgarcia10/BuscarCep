@@ -5,12 +5,11 @@ A simple Flutter project, structured following the Clean Architecture and Clean 
 
 ## Features
 
-- [x] Sign in
-- [x] Sign up
-- [x] Http Requests to search an address
-- [x] Address CRUD
-- [x] Geolocation
-- [x] Redirect to Google Maps and shows the best route from your current location to the selected address      
+- [x] Authentication (Firebase Auth)
+- [x] Http Requests to search the address in a public API (Dio) 
+- [x] Address CRUD (Cloud Firestore)
+- [x] Geolocation (Geolocator)
+- [x] Redirect to Google Maps and shows the best route from your current location to the selected address (Url Launcher)
 
 
 ## Organization
